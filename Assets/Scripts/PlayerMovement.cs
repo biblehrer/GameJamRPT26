@@ -17,28 +17,22 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // Movment here:
-        if (Input.GetKey(KeyCode.D))
-        {
-            Vector3 change = Vector3.right * Time.deltaTime * Speed;
-            transform.position = transform.position + change;
-        }
-        
-        if (Input.GetKey(KeyCode.A))
-        {
-            Vector3 change = Vector3.left * Time.deltaTime * Speed;
-            transform.position = transform.position + change;
-        }
+        float horizontal = 0f;
+        float vertical = 0f;
 
-        if (Input.GetKey(KeyCode.W))
-        {
-            Vector3 change = Vector3.up * Time.deltaTime * Speed;
-            transform.position = transform.position + change;
-        }
+        if (Input.GetKey(KeyCode.D))
+            horizontal += 1f;
+
+        if (Input.GetKey(KeyCode.A)) 
+            horizontal -= 1f;
+
+        if (Input.GetKey(KeyCode.W)) 
+            vertical += 1f;
 
         if (Input.GetKey(KeyCode.S))
-        {
-            Vector3 change = Vector3.down * Time.deltaTime * Speed;
-            transform.position = transform.position + change;
-        }
+            vertical -= 1f;
+
+        Vector3 change = new Vector3(horizontal, vertical, 0f).normalized * Time.deltaTime * Speed;
+        transform.position += change;
     }
 }
