@@ -30,7 +30,7 @@ public class EnemyDamageMele : MonoBehaviour
     {
         if (Time.time < lastAttackTime + attackCooldown) return;
         lastAttackTime = Time.time;
-        playerhealth playerHealth = player.GetComponent<playerhealth>();
+        PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
 
         if (playerHealth != null)    
         {
