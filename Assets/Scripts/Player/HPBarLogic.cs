@@ -17,7 +17,7 @@ public class HPBarLogic : MonoBehaviour
         HPBar();
     }
 
-        void HPBar()
+    void HPBar()
     {
         slider.maxValue = PlayerHp.maxHealth;
         slider.value = PlayerHp.health;

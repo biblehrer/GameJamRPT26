@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class gameover : MonoBehaviour
+public class Gameover : MonoBehaviour
 {
     public GameObject Gameover ;
     public GameObject gamewin ;
