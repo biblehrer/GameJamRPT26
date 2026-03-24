@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Bullet : MonoBehaviour
 {
@@ -11,28 +12,18 @@ public class Bullet : MonoBehaviour
     private float lifeTime = 3f;
 
     private Rigidbody2D rb;
-    private Vector2 moveDirection;
 
-    private void Start()
+    public void SetDirection(Vector2 dir)
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0f;
         Destroy(gameObject, lifeTime);
-    }
 
-    private void FixedUpdate()
-    {
-        if (moveDirection != Vector2.zero)
-        {
-            rb.linearVelocity = moveDirection * speed;
-        }
-    }
-    public void SetDirection(Vector2 dir)
-    {
+        Vector2 moveDirection = dir.normalized;
         //rotate bullet sprite
-        moveDirection = dir.normalized;
 
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle); 
+        transform.rotation = Quaternion.Euler(0, 0, angle);
+        rb.linearVelocity = moveDirection * speed;
     }
 }

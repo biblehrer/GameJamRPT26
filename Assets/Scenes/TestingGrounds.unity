@@ -624,7 +624,7 @@ Transform:
   m_GameObject: {fileID: 1581167517}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.16, y: -0.03, z: 0}
+  m_LocalPosition: {x: 4.83, y: -0.03, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -643,17 +643,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aebef338c3ea0554a8df4038a17e4e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  speed: 3
-  rotateSpeed: 0.0025
-  distanceToStop: 3
   bulletPrefab: {fileID: 8393839235502484414, guid: 848ea60fc5f82a74f9d71b194ab45921, type: 3}
   firingPoint: {fileID: 614512983}
   distanceToShoot: 5
-  fireRate: 1
+  fireRate: 5
   damageToPlayer: 1
-  maxHealth: 3
-  spriteRenderer: {fileID: 1581167519}
 --- !u!50 &1581167522
 Rigidbody2D:
   serializedVersion: 5

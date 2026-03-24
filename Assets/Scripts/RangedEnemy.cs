@@ -3,12 +3,8 @@ using UnityEngine;
 public class RangedEnemy : MonoBehaviour
 {
     [Header("Target")]
-    public Transform target;
+    private Transform target;
 
-    [Header("Movement")]
-    public float speed = 3f;
-    public float rotateSpeed = 5f;
-    public float distanceToStop = 3f;
 
     [Header("Combat")]
     public GameObject bulletPrefab;
@@ -17,26 +13,10 @@ public class RangedEnemy : MonoBehaviour
     public float fireRate = 1f;
     public int damageToPlayer = 1;
 
-    [Header("Health")]
-    public int maxHealth = 3;
-    private int currentHealth;
-
-    [Header("Sprite")]
-    public SpriteRenderer spriteRenderer;
-
-    private Rigidbody2D rb;
     private float fireTimer = 0f;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        currentHealth = maxHealth;
-
-        if (spriteRenderer == null)
-        {
-            spriteRenderer = GetComponent<SpriteRenderer>();
-        }
-
         GetTarget();
     }
 
@@ -85,34 +65,5 @@ public class RangedEnemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
-    }
-
-    private void Die()
-    {
-        Destroy(gameObject);
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            // ===== INSERT PLAYER HEALTH STUFF HERE =====
-
-            target = null;
-        }
-        else if (other.gameObject.CompareTag("Bullet"))
-        {
-            Destroy(other.gameObject);
-            TakeDamage(1);
-        }
-    }
 }
 
