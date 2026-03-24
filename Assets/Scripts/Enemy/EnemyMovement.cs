@@ -26,8 +26,8 @@ public class EnemyMovement : MonoBehaviour
 
     void LookAtPlayer()
     {
-        // Enemy dreht sich zum Spieler (Sprite-Oben zeigt auf Spieler)
-        transform.up = player.transform.position - transform.position;
+        // Enemy dreht sich zum Spieler
+        transform.right = player.transform.position - transform.position;
     }
 
     void MoveTowardsPlayer()
