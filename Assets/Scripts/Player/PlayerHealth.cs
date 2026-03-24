@@ -21,7 +21,17 @@ public class PlayerHealth : MonoBehaviour
     {
          health = Mathf.Clamp(health, 0, maxHealth);
     }
+    public void TakeDamage(int amount)
+    {
+        health -= amount;
 
+        if (health <= 0)
+        {
+            health = 0;
+        }
+
+        Debug.Log("Player Hit ! Health Left  : " + health);
+    }
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

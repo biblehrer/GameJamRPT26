@@ -11,6 +11,11 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     private float lifeTime = 3f;
 
+    [Header("Damage")]
+    [SerializeField]
+    private int damage = 10;
+
+
     private Rigidbody2D rb;
 
     public void SetDirection(Vector2 dir)
@@ -25,5 +30,19 @@ public class Bullet : MonoBehaviour
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
         rb.linearVelocity = moveDirection * speed;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Check if hit player
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(damage);
+            }
+            Destroy(gameObject); // Destroy bullet after hit
+        }
     }
 }
