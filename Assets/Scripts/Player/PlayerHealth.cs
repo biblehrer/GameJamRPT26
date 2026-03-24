@@ -13,15 +13,7 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (health > 100)
-        {
-            health = 100;
-        }
-        
-        if (health < 0)
-        {
-            health = 0;
-        }
+        health = Mathf.Clamp(health, 0, maxHealth);        
     }
    
 
