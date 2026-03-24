@@ -3,9 +3,10 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     private GameObject player;
-    public float speed = 3f;        // Bewegungsgeschwindigkeit
-    public float stopDistance = 1f; // Abstand, bei dem der Enemy stoppt
+    public float speed = 3f;         // Bewegungsgeschwindigkeit
+    public float stopDistance = 1f;  // Abstand, bei dem der Enemy stoppt
     public float activationDistance = 20f;
+    public float rotationSpeed = 5f; // Drehgeschwindigkeit
 
     void Start()
     {
@@ -26,8 +27,12 @@ public class EnemyMovement : MonoBehaviour
 
     void LookAtPlayer()
     {
-        // Enemy dreht sich zum Spieler
-        transform.right = player.transform.position - transform.position;
+        // Richtung berechnen (Rechts/Links)
+        float directionX = player.transform.position.x - transform.position.x;
+        float targetYAngle = directionX > 0 ? 0f : 180f;
+        
+        Quaternion targetRotation = Quaternion.Euler(0, targetYAngle, 0);
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
     void MoveTowardsPlayer()
