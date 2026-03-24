@@ -8,20 +8,24 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public GameObject RotationArea;
+    public GameObject playerSprite;
     public MovementAnimation anime;
     public SpriteRenderer Sprite;
     public float Speed = 1;
+    public float rotationSpeed = 5f;
+    bool facingRight;
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        PlayerRotation();
         
         float horizontal = 0f;
         float vertical = 0f;
@@ -37,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         {
             horizontal += 1f;
             AnimationPlay(false,false,true);
-            Sprite.flipX = false;
+            facingRight = true;
             RotationArea.transform.rotation = Quaternion.Euler(0f, 0f, -90f);
         }
         else if (Input.GetKeyUp(KeyCode.D))
@@ -47,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         {
             horizontal -= 1f;
             AnimationPlay(false,false,true);
-            Sprite.flipX = true;
+            facingRight = false;
             RotationArea.transform.rotation = Quaternion.Euler(0f, 0f, 90f);
         }
         else if (Input.GetKeyUp(KeyCode.A))
@@ -89,5 +93,13 @@ public class PlayerMovement : MonoBehaviour
         anime.walkSouth(South,South);
 
         anime.walkSide(Side,Side);
+    }
+
+    void PlayerRotation()
+    {
+        float targetYAngle = facingRight ? 0f : 180f;
+        
+        Quaternion targetRotation = Quaternion.Euler(0, targetYAngle, 0);
+        playerSprite.transform.rotation = Quaternion.Lerp(playerSprite.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 }
