@@ -1,11 +1,10 @@
-// EnemyDamageMele.cs
 using UnityEngine;
 
 public class EnemyDamageMele : MonoBehaviour
 {
     private GameObject player;
 
-    public float attackDistance = 2f;
+    public float attackDistance = 0.25f;
     public float damageAmount = 10f;
     public float attackCooldown = 2f;  // seconds between attacks
     private float lastAttackTime = -Mathf.Infinity;
@@ -18,7 +17,6 @@ public class EnemyDamageMele : MonoBehaviour
     void Update()
     {
         float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
-        Debug.Log("Distanz: " + distanceToPlayer + " | attackDistance: " + attackDistance);
 
         if (distanceToPlayer <= attackDistance)
         {
@@ -30,11 +28,9 @@ public class EnemyDamageMele : MonoBehaviour
     {
         if (Time.time < lastAttackTime + attackCooldown) return;
         lastAttackTime = Time.time;
-        PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
 
-        if (playerHealth != null)    
-        {
-            playerHealth.health -= (int)damageAmount;
-        }
+        PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+        playerHealth.health -= (int)damageAmount;
+        Debug.Log("Schaden gemacht: " + damageAmount);
     }
 }

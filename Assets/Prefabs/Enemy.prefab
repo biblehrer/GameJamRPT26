@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6508461237867457552}
-  - component: {fileID: 2737002754415426957}
-  - component: {fileID: 3582336303925470313}
+  - component: {fileID: 4239885747877780800}
+  - component: {fileID: 7905347996672577027}
   - component: {fileID: 1637858421452119745}
   - component: {fileID: 8262032018106553736}
   m_Layer: 0
-  m_Name: EnemyMele
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,22 +35,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2737002754415426957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6140840380700439168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6c638444829db74ba9135a334f73836, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackDistance: 0
-  damageAmount: 10
-  attackCooldown: 2
---- !u!114 &3582336303925470313
+--- !u!114 &4239885747877780800
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -62,10 +47,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f788ad311c530e543a9d878a3a6c6ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  stopDistance: 0
+  speed: 2
+  stopDistance: 0.25
   activationDistance: 20
   rotationSpeed: 5
+--- !u!114 &7905347996672577027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6140840380700439168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6c638444829db74ba9135a334f73836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDistance: 0.25
+  damageAmount: 10
+  attackCooldown: 2
 --- !u!212 &1637858421452119745
 SpriteRenderer:
   m_ObjectHideFlags: 0
