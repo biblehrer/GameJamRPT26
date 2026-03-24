@@ -384,9 +384,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotationArea: {fileID: 1009063850602070886}
+  playerSprite: {fileID: 5262970648400232478}
   anime: {fileID: 6346144094909248535}
   Sprite: {fileID: 5948840454090086496}
   Speed: 2
+  rotationSpeed: 5
 --- !u!114 &4504766665102384803
 MonoBehaviour:
   m_ObjectHideFlags: 0
