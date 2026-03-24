@@ -9,10 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6508461237867457552}
+  - component: {fileID: 3763979566619362258}
   - component: {fileID: 4239885747877780800}
   - component: {fileID: 7905347996672577027}
   - component: {fileID: 1637858421452119745}
   - component: {fileID: 8262032018106553736}
+  - component: {fileID: 3002349873208236445}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -35,6 +37,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3763979566619362258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6140840380700439168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df5f8b1d55f3c8c49b54ad36e0b1cb1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 30
+  maxhealth: 30
 --- !u!114 &4239885747877780800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,8 +63,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f788ad311c530e543a9d878a3a6c6ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  stopDistance: 0.25
+  speed: 1
+  stopDistance: 0.5
   activationDistance: 20
   rotationSpeed: 5
 --- !u!114 &7905347996672577027
@@ -63,7 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6c638444829db74ba9135a334f73836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDistance: 0.25
+  attackDistance: 4.4
   damageAmount: 10
   attackCooldown: 2
 --- !u!212 &1637858421452119745
@@ -143,3 +159,40 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!70 &3002349873208236445
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6140840380700439168}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 1}
+  m_Direction: 0
