@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public class EnemyMovement : MonoBehaviour
     public float stopDistance = 0.25f;  // Abstand, bei dem der Enemy stoppt
     public float activationDistance = 20f;
     public float rotationSpeed = 5f; // Drehgeschwindigkeit
-
+   
     void Start()
     {
         // Spieler über Tag suchen
