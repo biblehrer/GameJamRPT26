@@ -3,8 +3,8 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     private GameObject player;
-    public float speed = 3f;         // Bewegungsgeschwindigkeit
-    public float stopDistance = 1f;  // Abstand, bei dem der Enemy stoppt
+    public float speed = 2f;         // Bewegungsgeschwindigkeit
+    public float stopDistance = 0.25f;  // Abstand, bei dem der Enemy stoppt
     public float activationDistance = 20f;
     public float rotationSpeed = 5f; // Drehgeschwindigkeit
 
