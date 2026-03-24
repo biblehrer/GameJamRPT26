@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
     public void SetDirection(Vector2 dir)
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 0f;
+        //rb.gravityScale = 0f;
         Destroy(gameObject, lifeTime);
 
         Vector2 moveDirection = dir.normalized;
