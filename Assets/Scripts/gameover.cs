@@ -7,6 +7,7 @@ public class GameOver : MonoBehaviour
     public GameObject button;
     public PlayerHealth player ;
     public GameObject spawner;
+    
     void Start()
     {
         
