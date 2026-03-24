@@ -48,33 +48,12 @@ public class RangedEnemy : MonoBehaviour
             return;
         }
 
-        FaceTarget();
-
         float distanceToTarget = Vector2.Distance(target.position, transform.position);
         if (distanceToTarget <= distanceToShoot)
         {
             Shoot();
         }
     }
-
-    private void FixedUpdate()
-    {
-        if (target == null) return;
-
-        float distanceToTarget = Vector2.Distance(target.position, transform.position);
-
-        if (distanceToTarget >= distanceToStop)
-        {
-            // Move towards target (top-down)
-            Vector2 direction = (target.position - transform.position).normalized;
-            rb.linearVelocity = direction * speed;
-        }
-        else
-        {
-            rb.linearVelocity = Vector2.zero;
-        }
-    }
-
     private void Shoot()
     {
         fireTimer -= Time.deltaTime;
@@ -94,19 +73,6 @@ public class RangedEnemy : MonoBehaviour
             }
 
             fireTimer = fireRate;
-        }
-    }
-
-    private void FaceTarget()
-    {
-        // Flip sprite based on target position
-        if (target.position.x < transform.position.x)
-        {
-            spriteRenderer.flipX = true; // Face left
-        }
-        else
-        {
-            spriteRenderer.flipX = false; // Face right
         }
     }
 
