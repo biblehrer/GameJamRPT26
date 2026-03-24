@@ -9,7 +9,7 @@ public class spawner : MonoBehaviour
    
     float timer = 0f;
     private const float spawndauer = 6f;
-    float waves = 5f;
+    float waves = 5f; // enemies pro wave
     
     void Start()
     {
