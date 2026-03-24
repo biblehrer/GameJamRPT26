@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public GameObject RotationArea;
     public MovementAnimation anime;
     public SpriteRenderer Sprite;
     public float Speed = 1;
@@ -37,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
             horizontal += 1f;
             AnimationPlay(false,false,true);
             Sprite.flipX = false;
+            RotationArea.transform.rotation = Quaternion.Euler(0f, 0f, -90f);
         }
         else if (Input.GetKeyUp(KeyCode.D))
             anime.walkSide(false,true);
@@ -46,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
             horizontal -= 1f;
             AnimationPlay(false,false,true);
             Sprite.flipX = true;
+            RotationArea.transform.rotation = Quaternion.Euler(0f, 0f, 90f);
         }
         else if (Input.GetKeyUp(KeyCode.A))
             anime.walkSide(false,true);
@@ -59,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
         {
             vertical += 1f;
             AnimationPlay(true,false,false);
+            RotationArea.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
         else if (Input.GetKeyUp(KeyCode.W))  
             anime.walkNorth(false,true);
@@ -67,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
         {
             vertical -= 1f;
             AnimationPlay(false,true,false);
+            RotationArea.transform.rotation = Quaternion.Euler(0f, 0f, 180f);
         }
         else if (Input.GetKeyUp(KeyCode.S))  
             anime.walkSouth(false,true);
