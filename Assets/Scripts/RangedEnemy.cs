@@ -2,88 +2,151 @@ using UnityEngine;
 
 public class RangedEnemy : MonoBehaviour
 {
+    [Header("Target")]
     public Transform target;
-    public float speed = 3f;
-    public float rotateSpeed = 0.0025f;
-    private Rigidbody2D rb;
 
-    public float distanceToShoot = 5f;
+    [Header("Movement")]
+    public float speed = 3f;
+    public float rotateSpeed = 5f;
     public float distanceToStop = 3f;
 
-    public float fireRate;
-    public float fireTime;
-
+    [Header("Combat")]
+    public GameObject bulletPrefab;
     public Transform firingPoint;
+    public float distanceToShoot = 5f;
+    public float fireRate = 1f;
+    public int damageToPlayer = 1;
+
+    [Header("Health")]
+    public int maxHealth = 3;
+    private int currentHealth;
+
+    [Header("Sprite")]
+    public SpriteRenderer spriteRenderer;
+
+    private Rigidbody2D rb;
+    private float fireTimer = 0f;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        currentHealth = maxHealth;
+
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        GetTarget();
     }
 
     private void Update()
     {
-       if (!target)
+        if (target == null)
         {
             GetTarget();
+            return;
         }
-       else
-        {
-            RotateTowardsTarget();
-        }
-       if (Vector2.Distance(target.position, transform.position) <= distanceToStop)
+
+        FaceTarget();
+
+        float distanceToTarget = Vector2.Distance(target.position, transform.position);
+        if (distanceToTarget <= distanceToShoot)
         {
             Shoot();
         }
     }
 
-    private void Shoot()
+    private void FixedUpdate()
     {
-        if (fireTime <= 0f)
+        if (target == null) return;
+
+        float distanceToTarget = Vector2.Distance(target.position, transform.position);
+
+        if (distanceToTarget >= distanceToStop)
         {
-            Debug.Log("Pew Pew");
-            fireTime = fireRate;
+            // Move towards target (top-down)
+            Vector2 direction = (target.position - transform.position).normalized;
+            rb.linearVelocity = direction * speed;
         }
         else
         {
-            fireTime -= Time.deltaTime;
+            rb.linearVelocity = Vector2.zero;
         }
     }
 
-    private void FixedUpdate()
+    private void Shoot()
     {
-        if (Vector2.Distance(target.position, transform.position) >= distanceToStop)
+        fireTimer -= Time.deltaTime;
+
+        if (fireTimer <= 0f)
         {
-            rb.linearVelocity = transform.up * speed;
+            // Spawn bullet
+            GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
+
+            // Calculate direction to target
+            Vector2 direction = (target.position - firingPoint.position).normalized;
+
+            Bullet bullet = bulletObj.GetComponent<Bullet>();
+            if (bullet != null)
+            {
+                bullet.SetDirection(direction);
+            }
+
+            fireTimer = fireRate;
         }
     }
 
-    private void RotateTowardsTarget()
+    private void FaceTarget()
     {
-        Vector2 targetDirection = target.position - transform.position;
-        float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg - 90f;
-        Quaternion q = Quaternion.Euler(new Vector3(0, 0 ,angle));
-        transform.localRotation = Quaternion.Slerp(transform.localRotation, q, rotateSpeed);
+        // Flip sprite based on target position
+        if (target.position.x < transform.position.x)
+        {
+            spriteRenderer.flipX = true; // Face left
+        }
+        else
+        {
+            spriteRenderer.flipX = false; // Face right
+        }
     }
 
     private void GetTarget()
     {
-        if (GameObject.FindGameObjectWithTag("Player"))
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
         {
-            target = GameObject.FindGameObjectWithTag("Player").transform;
+            target = player.transform;
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Destroy(other.gameObject);
+            // ===== INSERT PLAYER HEALTH STUFF HERE =====
+
             target = null;
         }
         else if (other.gameObject.CompareTag("Bullet"))
         {
             Destroy(other.gameObject);
-            Destroy(gameObject);
+            TakeDamage(1);
         }
     }
 }
+
