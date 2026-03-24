@@ -6,7 +6,7 @@ public class AttackHitBox : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "enemy") //enemy tag ??
+        if (other.tag == "Enemy")
         {
             EnemyStats enemyStats = other.GetComponent<EnemyStats>();
             if (enemyStats == null)
