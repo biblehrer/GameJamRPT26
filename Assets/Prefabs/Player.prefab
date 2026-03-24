@@ -383,6 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de914f66ed7323845ab20797baa1413b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RotationArea: {fileID: 1009063850602070886}
   anime: {fileID: 6346144094909248535}
   Sprite: {fileID: 5948840454090086496}
   Speed: 2
