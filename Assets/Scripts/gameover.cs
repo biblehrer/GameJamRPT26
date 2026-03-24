@@ -5,7 +5,7 @@ public class gameover : MonoBehaviour
     public GameObject Gameover ;
     public GameObject gamewin ;
     public GameObject button;
-    public playerhealth player ;
+    public PlayerHealth player ;
     public GameObject spawner;
     void Start()
     {
@@ -19,15 +19,16 @@ public class gameover : MonoBehaviour
         Gameover.SetActive(true);
          button.SetActive(true);
     }
-    if (spawner.transform.childCount == 0)
+    /*if (spawner.transform.childCount == 0)
     {
         gamewin.SetActive(true);
          button.SetActive(true);
-    }
+    }*/
     
     }
     public void eppstein()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-    }
+    
+}
