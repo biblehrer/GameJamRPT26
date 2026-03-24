@@ -1,13 +1,13 @@
 using UnityEngine;
-
 public class EnemyDamageMele : MonoBehaviour
 {
     private GameObject player;
 
-    public float attackDistance = 0.25f;
-    public float damageAmount = 10f;
-    public float attackCooldown = 2f;  // seconds between attacks
-    private float lastAttackTime = -Mathf.Infinity;
+    public float attackDistance = 0.5f; 
+    public int damageAmount = 10;
+
+    public float attackCooldown = 2f; 
+    private float cooldownTimer = 0f;
 
     void Start()
     {
@@ -16,21 +16,22 @@ public class EnemyDamageMele : MonoBehaviour
 
     void Update()
     {
-        float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        // Timer hochzählen
+        cooldownTimer += Time.deltaTime;
 
-        if (distanceToPlayer <= attackDistance)
+        float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position); //distanz zum spieler berechnen
+
+        // wenn spieler distanz und timer (zwischen attacken) passen dann angriff
+        if (distanceToPlayer <= attackDistance && cooldownTimer >= attackCooldown)
         {
             Attack();
+            cooldownTimer = 0f; // timer resetted
         }
     }
 
     void Attack()
     {
-        if (Time.time < lastAttackTime + attackCooldown) return;
-        lastAttackTime = Time.time;
-
         PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-        playerHealth.health -= (int)damageAmount;
-        Debug.Log("Schaden gemacht: " + damageAmount);
+        playerHealth.health -= damageAmount; //damage abziehen
     }
 }
