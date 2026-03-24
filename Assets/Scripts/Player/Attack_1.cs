@@ -1,60 +1,37 @@
-using JetBrains.Annotations;
 using UnityEngine;
 
 public class Attack_1 : MonoBehaviour
 {   
-    public GameObject anchorPrefab;
-    public GameObject swordPrefab;
+    public GameObject hitbox;
 
-    GameObject anchor;
-    GameObject sword;
-    float rotated = 0f;
-    float rotationSpeed = 360f; // Grad pro Sekunde
-    float halfAngle = 135 / 2f;
+    private bool attacking = false;
 
-    void Attack_1Start()
-    {   
-        if (anchor != null || sword != null)
-            return;
-
-        anchor = Instantiate(
-            anchorPrefab,
-            transform.position,
-            Quaternion.Euler(0, 0, transform.eulerAngles.z - halfAngle),
-            transform
-        );
-
-        sword = Instantiate(swordPrefab, new Vector3(0, 2, 0), Quaternion.identity, anchor.transform);
-        rotated = 0;
-        anchor.transform.Rotate(0,0,halfAngle);
-    }
-
-
+    private float cooldown = 0.25f;
+    private float timer = 0f;
 
     void Update()
-    {   
-        if (Input.GetKey(KeyCode.F))
-        {   
-            Debug.Log("dawd");
-            Attack_1Start();
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Attack();
         }
 
-        if (anchor == null)
-            return;
-
-        float step = rotationSpeed * Time.deltaTime;
-        anchor.transform.Rotate(0, 0, -step);
-        rotated += step;
-
-        if (rotated >= 135f)
+        if(attacking)
         {
-            Attack_1End();
+            timer += Time.deltaTime;
+
+            if (timer >= cooldown)
+            {
+                timer = 0;
+                attacking = false;
+                hitbox.SetActive(attacking);
+            }
         }
     }
 
-    void Attack_1End()
-    {
-        Destroy(anchor);
-        Destroy(sword);
+    void Attack()
+    {   
+        attacking = true;
+        hitbox.SetActive(attacking);
     }
 }
