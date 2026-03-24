@@ -596,25 +596,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4239885747877780800, guid: bfca96681197ab6408ffa7afbcf91463, type: 3}
-      propertyPath: speed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4239885747877780800, guid: bfca96681197ab6408ffa7afbcf91463, type: 3}
-      propertyPath: stopDistance
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6140840380700439168, guid: bfca96681197ab6408ffa7afbcf91463, type: 3}
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6508461237867457552, guid: bfca96681197ab6408ffa7afbcf91463, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.236
+      value: -4.55
       objectReference: {fileID: 0}
     - target: {fileID: 6508461237867457552, guid: bfca96681197ab6408ffa7afbcf91463, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.03
+      value: 0.466
       objectReference: {fileID: 0}
     - target: {fileID: 6508461237867457552, guid: bfca96681197ab6408ffa7afbcf91463, type: 3}
       propertyPath: m_LocalPosition.z
@@ -647,10 +639,6 @@ PrefabInstance:
     - target: {fileID: 6508461237867457552, guid: bfca96681197ab6408ffa7afbcf91463, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7905347996672577027, guid: bfca96681197ab6408ffa7afbcf91463, type: 3}
-      propertyPath: attackDistance
-      value: 4.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
