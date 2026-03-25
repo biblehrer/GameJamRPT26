@@ -54,5 +54,5 @@ public class PlayerHealth : MonoBehaviour
         // Back to original color
         spriteRenderer.color = Color.white;
     }
-
+public float damage = 10f;
 }
