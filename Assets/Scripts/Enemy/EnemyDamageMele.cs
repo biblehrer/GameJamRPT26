@@ -21,8 +21,6 @@ public class EnemyDamageMele : MonoBehaviour
 
         float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position); //distanz zum spieler berechnen
 
-        Debug.Log(distanceToPlayer);
-
         // wenn spieler distanz und timer (zwischen attacken) passen dann angriff
         if (distanceToPlayer <= attackDistance && cooldownTimer >= attackCooldown)
         {
