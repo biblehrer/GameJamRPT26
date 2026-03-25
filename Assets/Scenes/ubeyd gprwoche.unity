@@ -1055,13 +1055,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6411082808028327324, guid: 2ed47f0ec599f7a4b9e077b0ade17ced, type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6411082808028327324, guid: 2ed47f0ec599f7a4b9e077b0ade17ced, type: 3}
+      propertyPath: healSprite
+      value: 
+      objectReference: {fileID: -3446067700141710447, guid: f883b0445a35c77488b0c9ccc4a691f5, type: 3}
+    - target: {fileID: 6411082808028327324, guid: 2ed47f0ec599f7a4b9e077b0ade17ced, type: 3}
+      propertyPath: speedSprite
+      value: 
+      objectReference: {fileID: -3575281986258195482, guid: f883b0445a35c77488b0c9ccc4a691f5, type: 3}
+    - target: {fileID: 6411082808028327324, guid: 2ed47f0ec599f7a4b9e077b0ade17ced, type: 3}
+      propertyPath: damageSprite
+      value: 
+      objectReference: {fileID: -2664913161173207641, guid: f883b0445a35c77488b0c9ccc4a691f5, type: 3}
     - target: {fileID: 7778596654155524386, guid: 2ed47f0ec599f7a4b9e077b0ade17ced, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.8867093
+      value: -3.68
       objectReference: {fileID: 0}
     - target: {fileID: 7778596654155524386, guid: 2ed47f0ec599f7a4b9e077b0ade17ced, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8565745
+      value: 1.31
       objectReference: {fileID: 0}
     - target: {fileID: 7778596654155524386, guid: 2ed47f0ec599f7a4b9e077b0ade17ced, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1099,6 +1115,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: healpotion
       objectReference: {fileID: 0}
+    - target: {fileID: 9122521788083531854, guid: 2ed47f0ec599f7a4b9e077b0ade17ced, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 756817112, guid: f883b0445a35c77488b0c9ccc4a691f5, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
