@@ -3,19 +3,23 @@ using System.Collections;
 
 public class HealthPotion : MonoBehaviour
 {
-    public int type; // 0 = Heal, 1 = Damage, 2 = Speed
+    public int type; // 0 = Heal, 1 = Damage Boost, 2 = Speed Boost
     public int healAmount = 25;
-    public int damageAmount = 10;
 
     [Header("Sprites für Potion")]
     public Sprite healSprite;
     public Sprite damageSprite;
     public Sprite speedSprite;
 
+    [Header("Boost Werte")]
+    public float boostMultiplier = 2f;
+    public float boostDuration = 5f;
+
     private bool playerInRange = false;
 
     private PlayerHealth playerHealth;
     private PlayerMovement playerMovement;
+    private AttackHitBox attackHitBox; // Zugriff auf dein Damage Script
     private SpriteRenderer spriteRenderer;
 
     void Start()
@@ -23,7 +27,7 @@ public class HealthPotion : MonoBehaviour
         // SpriteRenderer holen
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        // Random Typ setzen (0 = Heal, 1 = Damage, 2 = Speed)
+        // Random Typ setzen (0,1,2)
         type = Random.Range(0, 3);
 
         // Potion Aussehen entsprechend Typ setzen
@@ -54,6 +58,7 @@ public class HealthPotion : MonoBehaviour
 
             playerHealth = other.GetComponent<PlayerHealth>();
             playerMovement = other.GetComponent<PlayerMovement>();
+            attackHitBox = other.GetComponent<AttackHitBox>(); // Damage Script
 
             Debug.Log("Drücke F zum Benutzen");
         }
@@ -67,6 +72,7 @@ public class HealthPotion : MonoBehaviour
 
             playerHealth = null;
             playerMovement = null;
+            attackHitBox = null;
         }
     }
 
@@ -78,15 +84,14 @@ public class HealthPotion : MonoBehaviour
                 playerHealth.Heal(healAmount);
                 break;
 
-            case 1: // Damage
-                playerHealth.TakeDamage(damageAmount);
+            case 1: // Damage Boost
+                if (attackHitBox != null)
+                    StartCoroutine(DamageBoost(boostMultiplier, boostDuration));
                 break;
 
             case 2: // Speed Boost
                 if (playerMovement != null)
-                {
-                    StartCoroutine(SpeedBoost(2f, 5f));
-                }
+                    StartCoroutine(SpeedBoost(boostMultiplier, boostDuration));
                 break;
         }
     }
@@ -95,9 +100,7 @@ public class HealthPotion : MonoBehaviour
     {
         if (playerMovement == null) yield break;
 
-        // Achte darauf, dass dein PlayerMovement eine öffentliche Speed-Variable hat
         float originalSpeed = playerMovement.Speed;
-
         playerMovement.Speed *= multiplier;
 
         yield return new WaitForSeconds(duration);
@@ -105,7 +108,18 @@ public class HealthPotion : MonoBehaviour
         playerMovement.Speed = originalSpeed;
     }
 
-    // Funktion, die das Sprite/Farbe der Potion je nach Typ ändert
+    IEnumerator DamageBoost(float multiplier, float duration)
+    {
+        if (attackHitBox == null) yield break;
+
+        int originalDamage = attackHitBox.damage; // int speichern
+        attackHitBox.damage = (int)(originalDamage * multiplier); // Cast auf int
+
+        yield return new WaitForSeconds(duration);
+
+        attackHitBox.damage = originalDamage; // zurücksetzen
+    }
+
     void SetPotionLook()
     {
         if (spriteRenderer == null) return;
@@ -116,11 +130,11 @@ public class HealthPotion : MonoBehaviour
                 spriteRenderer.sprite = healSprite;
                 break;
 
-            case 1: // Damage
+            case 1: // Damage Boost
                 spriteRenderer.sprite = damageSprite;
                 break;
 
-            case 2: // Speed
+            case 2: // Speed Boost
                 spriteRenderer.sprite = speedSprite;
                 break;
         }
