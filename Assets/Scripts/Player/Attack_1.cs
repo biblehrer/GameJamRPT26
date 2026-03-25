@@ -11,7 +11,7 @@ public class Attack_1 : MonoBehaviour
     PlayerMovement playerMovement;
     private bool attacking = false;
 
-    private float cooldown = 0.25f;
+    private float cooldown = 0.50f;
     private float timer = 0f;
 
     void Start()
@@ -22,10 +22,13 @@ public class Attack_1 : MonoBehaviour
     {
         AttackAnimation();
 
-        if (Input.GetMouseButtonDown(0))
+        if (!attacking)
         {
-            Attack();
-            StartAttack();
+            if (Input.GetMouseButtonDown(0))
+            {
+                Attack();
+                StartAttack();
+            }
         }
 
         if(attacking)
@@ -60,12 +63,12 @@ public class Attack_1 : MonoBehaviour
                 endRotation   = new Vector3(0, 0, -136f);
                 break;
             case 2:
-                startRotation = new Vector3(0, 0, -131f);
-                endRotation   = new Vector3(0, 0, -59f);
+                startRotation = new Vector3(0, 0, -59f);
+                endRotation   = new Vector3(0, 0, -131f);
                 break;
             case 3:
-                startRotation = new Vector3(0, 0, 131f);
-                endRotation   = new Vector3(0, 0, 59f);
+                startRotation = new Vector3(0, 0, 59f);
+                endRotation   = new Vector3(0, 0, 131f);
                 break;
         }
 
