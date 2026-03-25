@@ -1,9 +1,11 @@
-using System.ComponentModel;
 using UnityEngine;
 
 public class PickUpSword : MonoBehaviour
 {
     public GameObject Info;
+
+    public SwordType swordType = SwordType.WoodSword;
+
     bool playerInRange;
     PlayerHealth playerHealth;
 
@@ -16,17 +18,17 @@ public class PickUpSword : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(1) && playerInRange)
-            {
-                playerHealth.swordCollaction += 1;
-                Destroy(gameObject);  
-            }
+        {
+            playerHealth.swordCollection[swordType] += 1;
+            Destroy(gameObject);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        playerHealth = col.gameObject.GetComponent<PlayerHealth>();
         if (col.gameObject.CompareTag("Player"))
         {
+            playerHealth = col.gameObject.GetComponent<PlayerHealth>();
             playerInRange = true;
             Info.SetActive(true);
         }

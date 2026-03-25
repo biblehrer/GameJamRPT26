@@ -1,13 +1,24 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerHealth : MonoBehaviour
 {
     public int health = 100;
     public int maxHealth = 100;
+    
+    public Dictionary<SwordType, int> swordCollection = new Dictionary<SwordType, int>()
+    {
+        { SwordType.WoodSword,0},
+        { SwordType.BoneSword,0},
+        { SwordType.IronSword,0},
+        { SwordType.FireSword,0},
+        { SwordType.DiamondSword,0},
+        { SwordType.Netherrite,0},
+        { SwordType.DestroyerSword,0},
+    };
 
-    public int swordCollaction;
-    public int isUsingSowrd = 0;
+    public SwordType isUsingSword = SwordType.WoodSword;
 
     [Header("Damage Flash")]
     public SpriteRenderer spriteRenderer;

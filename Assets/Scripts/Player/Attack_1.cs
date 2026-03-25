@@ -3,29 +3,32 @@ using UnityEngine;
 public class Attack_1 : MonoBehaviour
 {   
     public GameObject[] hitbox;
-    int selectedSword= 0;
+
     PlayerHealth playerStats;
+    PlayerMovement playerMovement;
+
     public Transform RotationArea;
-     Vector3 startRotation;
-     Vector3 endRotation;
+    private Vector3 startRotation;
+    private Vector3 endRotation;
     private float rotationTime = 0f;
     private bool rotationDone = false;
-    PlayerMovement playerMovement;
-    private bool attacking = false;
 
+    private bool attacking = false;
     private float cooldown = 0.50f;
     private float timer = 0f;
+
+    private int selectedSword = 0;
 
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
-        playerStats = GetComponent<PlayerHealth>();
+        playerStats    = GetComponent<PlayerHealth>();
     }
+
     void Update()
     {
-        selectedSword = playerStats.isUsingSowrd;
-        if (selectedSword > 6)
-            selectedSword = 6;
+        selectedSword = Mathf.Clamp((int)playerStats.isUsingSword, 0, hitbox.Length - 1);
+
         AttackAnimation();
 
         if (!attacking)
@@ -37,23 +40,23 @@ public class Attack_1 : MonoBehaviour
             }
         }
 
-        if(attacking)
+        if (attacking)
         {
             timer += Time.deltaTime;
 
             if (timer >= cooldown)
             {
-                timer = 0;
+                timer = 0f;
                 attacking = false;
-                hitbox[selectedSword].SetActive(attacking);
+                hitbox[selectedSword].SetActive(false);
             }
         }
     }
 
     void Attack()
-    {   
+    {
         attacking = true;
-        hitbox[selectedSword].SetActive(attacking);
+        hitbox[selectedSword].SetActive(true);
     }
 
     void StartAttack()
