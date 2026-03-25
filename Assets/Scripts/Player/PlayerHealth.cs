@@ -19,8 +19,6 @@ public class PlayerHealth : MonoBehaviour
         {
             health = maxHealth;
         }
-
-        Debug.Log("Spieler geheilt! Leben: " + health);
     }
 
     void Update()
@@ -36,17 +34,10 @@ public class PlayerHealth : MonoBehaviour
             health = 0;
         }
 
-        Debug.Log("Player Hit ! Health Left  : " + health);
-
         // Flash red
         if (spriteRenderer != null)
         {
             StartCoroutine(FlashRed());
-        }
-
-        if (health <= 0)
-        {
-            Destroy(gameObject);
         }
     }
 
