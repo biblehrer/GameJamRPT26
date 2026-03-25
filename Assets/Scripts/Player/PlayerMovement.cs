@@ -32,12 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
 
         // Movment here:
-        if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.A))
-        {
-            anime.walkSide(false, true);
-            horizontal = 0f;
-        }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
         {
             horizontal += 1f;
             AnimationPlay(false,false,true);
@@ -47,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.D))
             anime.walkSide(false,true);
             
-        if (Input.GetKey(KeyCode.A))
+        if (!Input.GetKey(KeyCode.D)&&Input.GetKey(KeyCode.A))
         {
             horizontal -= 1f;
             AnimationPlay(false,false,true);
