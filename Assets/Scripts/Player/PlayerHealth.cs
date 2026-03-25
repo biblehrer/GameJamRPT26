@@ -6,6 +6,8 @@ public class PlayerHealth : MonoBehaviour
     public int health = 100;
     public int maxHealth = 100;
 
+    public int swordCollaction;
+
     [Header("Damage Flash")]
     public SpriteRenderer spriteRenderer;
     public float flashDuration = 0.1f;

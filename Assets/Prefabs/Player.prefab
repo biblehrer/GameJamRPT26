@@ -390,6 +390,7 @@ MonoBehaviour:
   Sprite: {fileID: 5948840454090086496}
   Speed: 2
   rotationSpeed: 5
+  faceingState: 0
 --- !u!114 &4504766665102384803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,6 +405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   maxHealth: 100
+  swordCollaction: 0
   spriteRenderer: {fileID: 5948840454090086496}
   flashDuration: 0.1
 --- !u!114 &946671941415691482
@@ -419,6 +421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitbox: {fileID: 8485226739243639086}
+  RotationArea: {fileID: 5003388721540229195}
 --- !u!58 &8612186890782806617
 CircleCollider2D:
   m_ObjectHideFlags: 0
