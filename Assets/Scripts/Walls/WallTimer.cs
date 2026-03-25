@@ -2,7 +2,7 @@ using UnityEngine;
 public class WallTimer : MonoBehaviour
 {
     private float timer = 0f;
-    private float destroyTime = 60f;
+    public float destroyTime = 60f;
     private bool triggered = false;
 
     public void StartTimer()
