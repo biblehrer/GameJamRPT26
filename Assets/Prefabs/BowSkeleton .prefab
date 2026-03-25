@@ -110,7 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8393839235502484414, guid: 848ea60fc5f82a74f9d71b194ab45921, type: 3}
   firingPoint: {fileID: 4856838111480753286}
-  distanceToShoot: 3
+  distanceToShoot: 5
   fireRate: 5
   damageToPlayer: 1
 --- !u!50 &2922692780586438127
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  stopDistance: 3
+  stopDistance: 5
   activationDistance: 20
   rotationSpeed: 10
 --- !u!95 &8025102652657080105
