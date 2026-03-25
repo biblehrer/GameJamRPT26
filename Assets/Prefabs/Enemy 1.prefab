@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4864142618071177410}
   - component: {fileID: 3868487076623076275}
   - component: {fileID: 4662654623278542321}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -54,6 +54,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 30
   maxhealth: 30
+  spriteRenderer: {fileID: 4668884782757255832}
+  flashDuration: 0.1
 --- !u!114 &8792106970697582768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,9 +250,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1075815023868124568}
     m_Modifications:
+    - target: {fileID: 464547075188851296, guid: 323a59b740afe8a4e93a787193154f1c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1520086937171584804, guid: 323a59b740afe8a4e93a787193154f1c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1756115287812956022, guid: 323a59b740afe8a4e93a787193154f1c, type: 3}
       propertyPath: m_Name
       value: Enemy Healthbar prefeb
+      objectReference: {fileID: 0}
+    - target: {fileID: 1756115287812956022, guid: 323a59b740afe8a4e93a787193154f1c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785687161310998189, guid: 323a59b740afe8a4e93a787193154f1c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3326156573252813100, guid: 323a59b740afe8a4e93a787193154f1c, type: 3}
       propertyPath: m_AnchorMax.x
@@ -351,6 +369,18 @@ PrefabInstance:
     - target: {fileID: 5741306980439133353, guid: 323a59b740afe8a4e93a787193154f1c, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271674671023290721, guid: 323a59b740afe8a4e93a787193154f1c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6380273867231489717, guid: 323a59b740afe8a4e93a787193154f1c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171300090769929533, guid: 323a59b740afe8a4e93a787193154f1c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
