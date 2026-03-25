@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class Attack_1 : MonoBehaviour
 {   
-    public GameObject hitbox;
+    public GameObject[] hitbox;
+    int selectedSword= 0;
+    PlayerHealth playerStats;
     public Transform RotationArea;
      Vector3 startRotation;
      Vector3 endRotation;
@@ -17,9 +19,13 @@ public class Attack_1 : MonoBehaviour
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
+        playerStats = GetComponent<PlayerHealth>();
     }
     void Update()
     {
+        selectedSword = playerStats.isUsingSowrd;
+        if (selectedSword > 6)
+            selectedSword = 6;
         AttackAnimation();
 
         if (!attacking)
@@ -39,7 +45,7 @@ public class Attack_1 : MonoBehaviour
             {
                 timer = 0;
                 attacking = false;
-                hitbox.SetActive(attacking);
+                hitbox[selectedSword].SetActive(attacking);
             }
         }
     }
@@ -47,7 +53,7 @@ public class Attack_1 : MonoBehaviour
     void Attack()
     {   
         attacking = true;
-        hitbox.SetActive(attacking);
+        hitbox[selectedSword].SetActive(attacking);
     }
 
     void StartAttack()
@@ -86,5 +92,15 @@ public class Attack_1 : MonoBehaviour
         RotationArea.rotation = Quaternion.Slerp(Quaternion.Euler(startRotation),Quaternion.Euler(endRotation),Mathf.SmoothStep(0f, 1f, t));
 
         if (t >= 1f) rotationDone = true;
+    }
+
+    void SwordSelect()
+    {
+        switch (selectedSword)
+        {
+            case 0:
+
+                break;
+        }
     }
 }
