@@ -1,19 +1,25 @@
 using UnityEngine;
-
 public class WallTimer : MonoBehaviour
 {
     private float timer = 0f;
-    private float destroyTime = 60f; //nach wie vielen sekunden geht die wand kaputt
+    private float destroyTime = 60f;
+    private bool triggered = false;
+
+    public void StartTimer()
+    {
+        triggered = true;
+    }
 
     void Update()
     {
-        timer += Time.deltaTime;
-
-        if (timer >= destroyTime)
+        if (triggered)
         {
-            Destroy(gameObject);
+            timer += Time.deltaTime; //timer
+
+            if (timer >= destroyTime ) // wenn destroytime erreicht, dann wand weg
+            {
+                Destroy(gameObject);
+            }
         }
     }
-
-    
 }
