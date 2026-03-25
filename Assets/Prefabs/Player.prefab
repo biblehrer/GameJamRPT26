@@ -345,6 +345,7 @@ GameObject:
   - component: {fileID: 4504766665102384803}
   - component: {fileID: 946671941415691482}
   - component: {fileID: 8612186890782806617}
+  - component: {fileID: 8467493786050112089}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -403,6 +404,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   maxHealth: 100
+  spriteRenderer: {fileID: 5948840454090086496}
+  flashDuration: 0.1
 --- !u!114 &946671941415691482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,6 +455,33 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!50 &8467493786050112089
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5997493897409575417}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 100000
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &6986490355034179913
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,13 +673,13 @@ GameObject:
   - component: {fileID: 5530306323525262052}
   - component: {fileID: 2748001496079571299}
   - component: {fileID: 2908515935352383168}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &488938070706578871
 Transform:
   m_ObjectHideFlags: 0
@@ -750,7 +780,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
