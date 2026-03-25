@@ -12,3 +12,6 @@ Swords
 https://thewisehedgehog.itch.io
 https://catdev-pixelarts.itch.io
 https://vericdev.itch.io/
+
+Health Potion
+http://bonsaiheld.org
