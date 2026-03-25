@@ -119,11 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &433075126 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5262970648400232478, guid: d38f27232738ce4408ac202d6274b508, type: 3}
-  m_PrefabInstance: {fileID: 2367740432003028491}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &494625207
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,10 +258,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4166229639541909882, guid: d38f27232738ce4408ac202d6274b508, type: 3}
-      propertyPath: playerSprite
-      value: 
-      objectReference: {fileID: 433075126}
     - target: {fileID: 5997493897409575417, guid: d38f27232738ce4408ac202d6274b508, type: 3}
       propertyPath: m_Name
       value: Player
