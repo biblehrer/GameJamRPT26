@@ -102,7 +102,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39b2cced36ca593478bec556d24e1901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   healAmount: 25
+  damageAmount: 10
+  healSprite: {fileID: -3446067700141710447, guid: f883b0445a35c77488b0c9ccc4a691f5, type: 3}
+  damageSprite: {fileID: -2664913161173207641, guid: f883b0445a35c77488b0c9ccc4a691f5, type: 3}
+  speedSprite: {fileID: -3575281986258195482, guid: f883b0445a35c77488b0c9ccc4a691f5, type: 3}
 --- !u!61 &407336134887235188
 BoxCollider2D:
   m_ObjectHideFlags: 0
