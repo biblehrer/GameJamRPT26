@@ -26,8 +26,8 @@ public class Attack_1 : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Attack();
                 StartAttack();
+                Attack();
             }
         }
 
