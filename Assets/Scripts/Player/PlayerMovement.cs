@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Security.Cryptography;
+using JetBrains.Annotations;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -14,7 +15,10 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer Sprite;
     public float Speed = 1;
     public float rotationSpeed = 5f;
+    public int faceingState =0;// 0 Up; 1 Down; 2 Right; 3 Left;
     bool facingRight;
+
+    
 
 
     // Start is called before the first frame update
@@ -55,15 +59,13 @@ public class PlayerMovement : MonoBehaviour
         float horizontal = 0f;
         float vertical = 0f;
 
-        
-
         // Movment here:
         if (Input.GetKey(KeyCode.D))
         {
             horizontal += 1f;
+            faceingState = 2;
             AnimationPlay(false,false,true);
             facingRight = true;
-            RotationArea.transform.rotation = Quaternion.Euler(0f, 0f, -90f);
         }
         else if (Input.GetKeyUp(KeyCode.D))
             anime.walkSide(false,true);
@@ -71,9 +73,9 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             horizontal -= 1f;
+            faceingState = 3;
             AnimationPlay(false,false,true);
             facingRight = false;
-            RotationArea.transform.rotation = Quaternion.Euler(0f, 0f, 90f);
         }
         else if (Input.GetKeyUp(KeyCode.A))
             anime.walkSide(false,true);
@@ -86,8 +88,8 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             vertical += 1f;
+            faceingState = 0;
             AnimationPlay(true,false,false);
-            RotationArea.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
         else if (Input.GetKeyUp(KeyCode.W))  
             anime.walkNorth(false,true);
@@ -95,8 +97,8 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.S))
         {
             vertical -= 1f;
+            faceingState = 1;
             AnimationPlay(false,true,false);
-            RotationArea.transform.rotation = Quaternion.Euler(0f, 0f, 180f);
         }
         else if (Input.GetKeyUp(KeyCode.S))  
             anime.walkSouth(false,true);
