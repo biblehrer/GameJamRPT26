@@ -13,7 +13,7 @@ public class HealthbarEnemy : MonoBehaviour
 
     void Update()
     {
-        
+        Healthbar.value = 0.5f;
 
         Healthbar.value = (float)health.health / health.maxhealth;
         

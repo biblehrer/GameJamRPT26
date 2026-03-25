@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Security.Cryptography;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -26,17 +27,37 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         PlayerRotation();
+
+        Movement();
+    }
+
+    //Hir wird die animation aus gewalt
+    void AnimationPlay(bool North, bool South, bool Side)
+    {
+        anime.walkNorth(North,North);
+
+        anime.walkSouth(South,South);
+
+        anime.walkSide(Side,Side);
+    }
+
+
+    void PlayerRotation()
+    {
+        float targetYAngle = facingRight ? 0f : 180f;
         
+        Quaternion targetRotation = Quaternion.Euler(0, targetYAngle, 0);
+        playerSprite.transform.rotation = Quaternion.Lerp(playerSprite.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+    }
+
+    void Movement()
+    {
         float horizontal = 0f;
         float vertical = 0f;
 
+        
 
         // Movment here:
-        if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.A))
-        {
-            anime.walkSide(false, true);
-            horizontal = 0f;
-        }
         if (Input.GetKey(KeyCode.D))
         {
             horizontal += 1f;
@@ -80,26 +101,14 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.S))  
             anime.walkSouth(false,true);
 
-
+        
         Vector3 change = new Vector3(horizontal, vertical, 0f).normalized * Time.deltaTime * Speed;
         transform.position += change;
+
+        if (horizontal == 0 && vertical ==0)
+            anime.walkSide(false,true);
+        if (vertical == 0 && horizontal ==0)
+            anime.walkSouth(false,true);
     }
-
-    //Hir wird die animation aus gewalt
-    void AnimationPlay(bool North, bool South, bool Side)
-    {
-        anime.walkNorth(North,North);
-
-        anime.walkSouth(South,South);
-
-        anime.walkSide(Side,Side);
-    }
-
-    void PlayerRotation()
-    {
-        float targetYAngle = facingRight ? 0f : 180f;
-        
-        Quaternion targetRotation = Quaternion.Euler(0, targetYAngle, 0);
-        playerSprite.transform.rotation = Quaternion.Lerp(playerSprite.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-    }
+    
 }
