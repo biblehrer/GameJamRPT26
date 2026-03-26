@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8025102652657080105}
   - component: {fileID: 2922692780586438127}
   - component: {fileID: 5346145887819112677}
+  - component: {fileID: 2334606949026481293}
   m_Layer: 6
   m_Name: 'BowSkeleton '
   m_TagString: Enemy
@@ -244,6 +245,22 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &2334606949026481293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6432783889078447126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb988c204f8c94449b0587833005a98a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootitems:
+  - {fileID: 8212115755435140571, guid: 2ed47f0ec599f7a4b9e077b0ade17ced, type: 3}
+  dropchance:
+  - 1
 --- !u!1 &8134945522160888857
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,11 +1,35 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class LootMonster : MonoBehaviour
 {
-    public GameObject loot;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public List<GameObject> lootitems;
+    [Range(0f, 1f)]
+    public List<float> dropchance;
+    
+    
     void OnDestroy()
     {
-        Instantiate(loot, transform.position,Quaternion.identity);
+        droploot();
+    }
+    void droploot()
+    {
+        float summe = 0;
+        float rnd = Random.value;
+        for(int i = 0; i < lootitems.Count; i++)
+        {
+            summe +=  dropchance[i];
+            if(rnd <= summe )
+            {
+                Instantiate(lootitems[i],transform.position,Quaternion.identity);
+                
+                break;
+            }
+            else
+            {
+                Debug.Log("kein item dropt");
+                break;
+            }
+        }
     }
 }

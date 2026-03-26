@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 4864142618071177410}
   - component: {fileID: 3868487076623076275}
   - component: {fileID: 4662654623278542321}
+  - component: {fileID: -869117021498397391}
   m_Layer: 6
   m_Name: Enemy 1
   m_TagString: Enemy
@@ -256,6 +257,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Healthbar: {fileID: 6358603510805261867}
   health: {fileID: 1635967021085833399}
+--- !u!114 &-869117021498397391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089656015916378151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb988c204f8c94449b0587833005a98a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootitems:
+  - {fileID: 8212115755435140571, guid: 2ed47f0ec599f7a4b9e077b0ade17ced, type: 3}
+  dropchance:
+  - 1
 --- !u!1001 &3434998095029796316
 PrefabInstance:
   m_ObjectHideFlags: 0
