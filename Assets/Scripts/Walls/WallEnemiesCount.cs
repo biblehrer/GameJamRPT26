@@ -3,11 +3,10 @@ using UnityEngine;
 public class WallEnemiesCount : MonoBehaviour
 {
     public float detectionRadius = 3f;
-    public GameObject spawner;
-
+    public GameObject Spawner;
     private Transform playerTransform; // Nicht mehr public, da wir es automatisch suchen
-    private bool playerArrived = false;
-    private bool enemiesSpawned = false;
+    bool playerArrived = false;
+    bool enemiesSpawned = false;
 
     void Start()
     {
@@ -36,7 +35,7 @@ public class WallEnemiesCount : MonoBehaviour
         }
 
         // Gegner im Spiel zählen
-        int currentEnemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
+         int currentEnemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
         
         // Welle gestartet?
         if (!enemiesSpawned)
@@ -45,7 +44,7 @@ public class WallEnemiesCount : MonoBehaviour
                 enemiesSpawned = true;
         }
 
-        if (spawner == null && currentEnemyCount == 0 && enemiesSpawned)
+        if (Spawner == null && currentEnemyCount == 0 && enemiesSpawned)
         {
             Destroy(gameObject);
         }
