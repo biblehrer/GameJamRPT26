@@ -9,14 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6104267902856223660}
-  - component: {fileID: 4002400501284187679}
   - component: {fileID: 4507696978516963266}
   - component: {fileID: 823431126922870299}
   - component: {fileID: 219800168480434250}
   - component: {fileID: 5981994840284786817}
   m_Layer: 0
   m_Name: Barrel
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,22 +35,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 157621985043231237}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4002400501284187679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414109423425882792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df5f8b1d55f3c8c49b54ad36e0b1cb1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  maxhealth: 100
-  spriteRenderer: {fileID: 4507696978516963266}
-  flashDuration: 0.1
 --- !u!212 &4507696978516963266
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -211,14 +194,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4656165184163049149}
-  - component: {fileID: 6324695496458816028}
   - component: {fileID: 7706492768062377010}
   - component: {fileID: 8785815593448241584}
   - component: {fileID: 6389731678934858784}
   - component: {fileID: 496032166821787573}
   m_Layer: 0
   m_Name: Barrel
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -238,22 +220,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 157621985043231237}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6324695496458816028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4279727416782499154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df5f8b1d55f3c8c49b54ad36e0b1cb1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  maxhealth: 100
-  spriteRenderer: {fileID: 7706492768062377010}
-  flashDuration: 0.1
 --- !u!212 &7706492768062377010
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -413,14 +379,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2029337397298596299}
-  - component: {fileID: 7477457517927945066}
   - component: {fileID: 1940797264533414419}
   - component: {fileID: 1973539907744133}
   - component: {fileID: 8317359943898584649}
   - component: {fileID: 363423105743655134}
   m_Layer: 0
   m_Name: Barrel
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -440,22 +405,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 157621985043231237}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7477457517927945066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5803456825918737970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df5f8b1d55f3c8c49b54ad36e0b1cb1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  maxhealth: 100
-  spriteRenderer: {fileID: 1940797264533414419}
-  flashDuration: 0.1
 --- !u!212 &1940797264533414419
 SpriteRenderer:
   m_ObjectHideFlags: 0
