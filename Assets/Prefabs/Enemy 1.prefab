@@ -271,8 +271,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootitems:
   - {fileID: 8212115755435140571, guid: 2ed47f0ec599f7a4b9e077b0ade17ced, type: 3}
+  - {fileID: 1719568467132972064, guid: 90a7151e3d76ec446b449cc0a0640be5, type: 3}
   dropchance:
-  - 1
+  - 0.2
+  - 0.1
 --- !u!1001 &3434998095029796316
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -25,11 +25,7 @@ public class LootMonster : MonoBehaviour
                 
                 break;
             }
-            else
-            {
-                Debug.Log("kein item dropt");
-                break;
-            }
+            
         }
     }
 }
