@@ -19,18 +19,5 @@ public class AttackHitBox : MonoBehaviour
         }
     }
 
-    public IEnumerator DamageBoost(float multiplier, float duration)
-    {
-        float originalDamage = damageMultiplier;
 
-        damageMultiplier *= multiplier;
-
-        Debug.Log("Damage Boost aktiv: x" + damageMultiplier);
-
-        yield return new WaitForSeconds(duration);
-
-        damageMultiplier = originalDamage;
-
-        Debug.Log("Damage Boost beendet");
-    }
 }

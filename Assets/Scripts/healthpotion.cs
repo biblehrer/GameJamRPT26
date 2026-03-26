@@ -19,7 +19,6 @@ public class HealthPotion : MonoBehaviour
 
     private PlayerStats playerHealth;
     private PlayerMovement playerMovement;
-    private AttackHitBox attackHitBox; 
     private SpriteRenderer spriteRenderer;
 
     void Start()
@@ -37,13 +36,8 @@ public class HealthPotion : MonoBehaviour
     {
         if (playerInRange && Input.GetButton("ActionButten"))
         {
-            if (playerHealth != null)
-            {
-                ApplyEffect();
-                Debug.Log("Potion benutzt!");
-
-                Destroy(gameObject);
-            }
+            ApplyEffect();
+            Destroy(gameObject);
         }
     }
 
@@ -55,9 +49,6 @@ public class HealthPotion : MonoBehaviour
 
             playerHealth = other.GetComponent<PlayerStats>();
             playerMovement = other.GetComponent<PlayerMovement>();
-            attackHitBox = other.GetComponent<AttackHitBox>(); 
-
-            Debug.Log("Drücke F zum Benutzen");
         }
     }
 
@@ -69,7 +60,6 @@ public class HealthPotion : MonoBehaviour
 
             playerHealth = null;
             playerMovement = null;
-            attackHitBox = null;
         }
     }
 
@@ -78,32 +68,27 @@ public class HealthPotion : MonoBehaviour
         switch (type)
         {
             case 0: // Heal
-                playerHealth.Heal(healAmount);
+                playerHealth?.Heal(healAmount);
                 break;
 
             case 1: //  Damage Boost
-                if (attackHitBox != null)
-                    StartCoroutine(attackHitBox.DamageBoost(boostMultiplier, boostDuration));
+                StartCoroutine(DoDamageBoost(boostMultiplier, boostDuration));
                 break;
 
             case 2: //  Speed Boost
-                if (playerMovement != null)
-                    StartCoroutine(SpeedBoost(boostMultiplier, boostDuration));
+                playerMovement?.SpeedBoost(boostMultiplier, boostDuration);
                 break;
         }
     }
 
-    IEnumerator SpeedBoost(float multiplier, float duration)
+    IEnumerator DoDamageBoost(float multiplier, float duration)
     {
-        if (playerMovement == null) yield break;
-
-        float originalSpeed = playerMovement.Speed;
-        playerMovement.Speed *= multiplier;
-
+        AttackHitBox.damageMultiplier *= multiplier;
         yield return new WaitForSeconds(duration);
-
-        playerMovement.Speed = originalSpeed;
+        AttackHitBox.damageMultiplier /= multiplier;
     }
+
+
 
     void SetPotionLook()
     {
@@ -124,4 +109,5 @@ public class HealthPotion : MonoBehaviour
                 break;
         }
     }
+
 }

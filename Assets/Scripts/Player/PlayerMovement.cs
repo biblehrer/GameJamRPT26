@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -6,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject playerSprite;
     public MovementAnimation anime;
     public SpriteRenderer Sprite;
-    public float Speed = 1;
+    public float speed = 1;
     public float rotationSpeed = 5f;
     public int faceingState =0;// 0 Up; 1 Down; 2 Right; 3 Left;
     bool facingRight;
@@ -83,8 +84,20 @@ public class PlayerMovement : MonoBehaviour
             anime.walkSouth(false, true);
         }
 
-        Vector3 change = new Vector3(horizontal, vertical, 0f).normalized * Time.deltaTime * Speed;
+        Vector3 change = new Vector3(horizontal, vertical, 0f).normalized * Time.deltaTime * speed;
         transform.position += change;
+    }
+
+    public void SpeedBoost(float multiplier, float duration)
+    {
+        StartCoroutine(DoSpeedBoost(multiplier,duration));
+    }
+
+    IEnumerator DoSpeedBoost(float multiplier, float duration)
+    {
+        speed *= multiplier;
+        yield return new WaitForSeconds(duration);
+        speed /= multiplier;
     }
     
 }
