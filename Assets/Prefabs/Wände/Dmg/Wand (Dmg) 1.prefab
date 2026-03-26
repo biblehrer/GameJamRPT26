@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4717750554527243042}
   - component: {fileID: 1457341946178635151}
   - component: {fileID: 6716905693927442475}
-  - component: {fileID: 5521318428903776442}
   - component: {fileID: 8791707431887388015}
   m_Layer: 0
   m_Name: Barrel
@@ -52,6 +51,7 @@ MonoBehaviour:
   maxhealth: 100
   spriteRenderer: {fileID: 1457341946178635151}
   flashDuration: 0.1
+  invincibilityDuration: 1
 --- !u!212 &1457341946178635151
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -129,33 +129,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!50 &5521318428903776442
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1950043085140115742}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!61 &8791707431887388015
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -215,7 +188,6 @@ GameObject:
   - component: {fileID: 4365098775915137590}
   - component: {fileID: 4294617122485654331}
   - component: {fileID: 4877424056871165612}
-  - component: {fileID: 9219538705882050005}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Enemy
@@ -254,6 +226,7 @@ MonoBehaviour:
   maxhealth: 100
   spriteRenderer: {fileID: 4365098775915137590}
   flashDuration: 0.1
+  invincibilityDuration: 1
 --- !u!212 &4365098775915137590
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -377,33 +350,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &9219538705882050005
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2247181987323399731}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!1 &3002909963630902979
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,7 +397,6 @@ GameObject:
   - component: {fileID: 4773832486743999143}
   - component: {fileID: 8357304620486744058}
   - component: {fileID: 4444821410458832173}
-  - component: {fileID: 5134453024586484423}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Enemy
@@ -490,6 +435,7 @@ MonoBehaviour:
   maxhealth: 100
   spriteRenderer: {fileID: 4773832486743999143}
   flashDuration: 0.1
+  invincibilityDuration: 1
 --- !u!212 &4773832486743999143
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -613,30 +559,3 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &5134453024586484423
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6258247039573070735}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
