@@ -38,6 +38,7 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         health = Mathf.Clamp(health, 0, maxHealth);
+        AutoSelectStrongestSword();
     }
     public void TakeDamage(int amount)
     {
@@ -65,5 +66,23 @@ public class PlayerHealth : MonoBehaviour
 
         // Back to original color
         spriteRenderer.color = Color.white;
+    }
+
+    void AutoSelectStrongestSword()
+    {
+        int swordCount = System.Enum.GetValues(typeof(SwordType)).Length;
+
+        for (int i = swordCount - 1; i >= 0; i--)
+        {
+            SwordType sword = (SwordType)i;
+
+            if (swordCollection.TryGetValue(sword, out int amount) && amount > 0)
+            {
+                isUsingSword = sword;
+                return;
+            }
+        }
+
+        isUsingSword = SwordType.WoodSword;
     }
 }
