@@ -37,7 +37,7 @@ public class spawner : MonoBehaviour
                         spawnmonster();
                     }
                     timer = 0f;
-                    wellen++;  
+                    wellen--;  
                 }  
             }
             else 
