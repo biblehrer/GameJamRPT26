@@ -10,8 +10,15 @@ public class EnemyStats : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public float flashDuration = 0.1f;
 
+    public float invincibilityDuration = 1.0f;
+    private bool isInvincible = false;
+
+    private EnemyDropRan dropScript;
+
     private void Start()
     {
+        dropScript = GetComponent<EnemyDropRan>();
+
         if (spriteRenderer == null)
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
@@ -21,10 +28,24 @@ public class EnemyStats : MonoBehaviour
         {
             spriteRenderer.color = Color.white;
         }
+
+        if (dropScript != null)
+        {
+            StartCoroutine(BecomeInvincible());
+        }
+    }
+
+    private IEnumerator BecomeInvincible()
+    {
+        isInvincible = true;
+        yield return new WaitForSeconds(invincibilityDuration);
+        isInvincible = false;
     }
 
     public void TakeDamage(int amount)
     {
+        if (isInvincible) return;
+
         health -= amount;
         health = Mathf.Clamp(health, 0, maxhealth);
         Debug.Log("Enemy Hit! Health Left: " + health);
@@ -32,12 +53,23 @@ public class EnemyStats : MonoBehaviour
         // Flash red
         if (spriteRenderer != null)
         {
-            StartCoroutine(FlashRed());
+            if (gameObject.activeInHierarchy)
+            {
+                StartCoroutine(FlashRed());
+            }
         }
 
         if (health <= 0)
         {
-            Destroy(gameObject);
+            if (dropScript != null)
+            {
+                dropScript.whenDeath();
+                Destroy(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -50,7 +82,9 @@ public class EnemyStats : MonoBehaviour
         yield return new WaitForSeconds(flashDuration);
 
         // Back to original color
-        spriteRenderer.color = Color.white;
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = Color.white;
+        }
     }
 }
-

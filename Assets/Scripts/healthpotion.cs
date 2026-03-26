@@ -19,18 +19,15 @@ public class HealthPotion : MonoBehaviour
 
     private PlayerHealth playerHealth;
     private PlayerMovement playerMovement;
-    private AttackHitBox attackHitBox; // Zugriff auf dein Damage Script
+    private AttackHitBox attackHitBox; 
     private SpriteRenderer spriteRenderer;
 
     void Start()
     {
-        // SpriteRenderer holen
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        // Random Typ setzen (0,1,2)
         type = Random.Range(0, 3);
 
-        // Potion Aussehen entsprechend Typ setzen
         SetPotionLook();
 
         Debug.Log("Potion Type: " + type);
@@ -58,7 +55,7 @@ public class HealthPotion : MonoBehaviour
 
             playerHealth = other.GetComponent<PlayerHealth>();
             playerMovement = other.GetComponent<PlayerMovement>();
-            attackHitBox = other.GetComponent<AttackHitBox>(); // Damage Script
+            attackHitBox = other.GetComponent<AttackHitBox>(); 
 
             Debug.Log("Drücke F zum Benutzen");
         }
@@ -84,12 +81,12 @@ public class HealthPotion : MonoBehaviour
                 playerHealth.Heal(healAmount);
                 break;
 
-            case 1: // Damage Boost
+            case 1: //  Damage Boost
                 if (attackHitBox != null)
-                    StartCoroutine(DamageBoost(boostMultiplier, boostDuration));
+                    StartCoroutine(attackHitBox.DamageBoost(boostMultiplier, boostDuration));
                 break;
 
-            case 2: // Speed Boost
+            case 2: //  Speed Boost
                 if (playerMovement != null)
                     StartCoroutine(SpeedBoost(boostMultiplier, boostDuration));
                 break;
@@ -108,33 +105,21 @@ public class HealthPotion : MonoBehaviour
         playerMovement.Speed = originalSpeed;
     }
 
-    IEnumerator DamageBoost(float multiplier, float duration)
-    {
-        if (attackHitBox == null) yield break;
-
-        int originalDamage = attackHitBox.damage; // int speichern
-        attackHitBox.damage = (int)(originalDamage * multiplier); // Cast auf int
-
-        yield return new WaitForSeconds(duration);
-
-        attackHitBox.damage = originalDamage; // zurücksetzen
-    }
-
     void SetPotionLook()
     {
         if (spriteRenderer == null) return;
 
         switch (type)
         {
-            case 0: // Heal
+            case 0:
                 spriteRenderer.sprite = healSprite;
                 break;
 
-            case 1: // Damage Boost
+            case 1:
                 spriteRenderer.sprite = damageSprite;
                 break;
 
-            case 2: // Speed Boost
+            case 2:
                 spriteRenderer.sprite = speedSprite;
                 break;
         }
