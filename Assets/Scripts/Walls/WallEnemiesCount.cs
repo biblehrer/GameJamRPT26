@@ -2,23 +2,35 @@ using UnityEngine;
 
 public class WallEnemiesCount : MonoBehaviour
 {
-    public Transform playerTransform;
     public float detectionRadius = 3f;
     public GameObject spawner;
 
+    private Transform playerTransform; // Nicht mehr public, da wir es automatisch suchen
     private bool playerArrived = false;
     private bool enemiesSpawned = false;
 
+    void Start()
+    {
+        GameObject playerObject = GameObject.FindWithTag("Player");
+        
+        if (playerObject != null)
+        {
+            playerTransform = playerObject.transform;
+        }
+    }
+
     void Update()
     {
-        // Warten bis der Spieler in Reichweite
+        // Falls kein Spieler gefunden wurde, abbrechen um Fehler zu vermeiden
+        if (playerTransform == null) return;
+
+        // Warten bis der Spieler in Reichweite ist
         if (!playerArrived)
         {
-            if (playerTransform != null)
+            float distance = Vector2.Distance(transform.position, playerTransform.position);
+            if (distance <= detectionRadius)
             {
-                float distance = Vector2.Distance(transform.position, playerTransform.position);
-                if (distance <= detectionRadius)
-                    playerArrived = true;
+                playerArrived = true;
             }
             return;
         }
@@ -33,11 +45,9 @@ public class WallEnemiesCount : MonoBehaviour
                 enemiesSpawned = true;
         }
 
-        // Spawner weg = Wand weg (vor dem Enemyzählen prüfen)
-        if (spawner == null && currentEnemyCount == 0)
+        if (spawner == null && currentEnemyCount == 0 && enemiesSpawned)
         {
             Destroy(gameObject);
-            return;
         }
     }
 }
