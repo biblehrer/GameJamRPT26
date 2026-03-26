@@ -24,7 +24,7 @@ public class PickUpSword : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(1) && playerInRange)
+        if (Input.GetButton("ActionButten") && playerInRange)
         {
             playerHealth.swordCollection[swordType] += 1;
             Destroy(gameObject);

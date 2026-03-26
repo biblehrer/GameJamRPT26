@@ -35,7 +35,7 @@ public class HealthPotion : MonoBehaviour
 
     void Update()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.F))
+        if (playerInRange && Input.GetButton("ActionButten"))
         {
             if (playerHealth != null)
             {

@@ -14,7 +14,7 @@ public class FusionPortal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1) && playerInRange)
+        if (Input.GetButton("ActionButten") && playerInRange)
         {
             CombineSwords();
         }

@@ -33,7 +33,7 @@ public class Attack_1 : MonoBehaviour
 
         if (!attacking)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetButton("ActionButten"))
             {
                 StartAttack();
                 Attack();
@@ -48,7 +48,7 @@ public class Attack_1 : MonoBehaviour
             {
                 timer = 0f;
                 attacking = false;
-                hitbox[selectedSword].SetActive(false);
+                DeactivateAllSwords();
             }
         }
     }
@@ -97,13 +97,11 @@ public class Attack_1 : MonoBehaviour
         if (t >= 1f) rotationDone = true;
     }
 
-    void SwordSelect()
+    void DeactivateAllSwords()
+{
+    for (int i = 0; i < hitbox.Length; i++)
     {
-        switch (selectedSword)
-        {
-            case 0:
-
-                break;
-        }
+        hitbox[i].SetActive(false);
     }
+}
 }

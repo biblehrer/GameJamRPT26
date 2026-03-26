@@ -56,61 +56,42 @@ public class PlayerMovement : MonoBehaviour
 
     void Movement()
     {
-        float horizontal = 0f;
-        float vertical = 0f;
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
 
-        // Movment here:
-        if (Input.GetKey(KeyCode.D))
+        // Movement here:
+        if (horizontal > 0f)
         {
-            horizontal += 1f;
             faceingState = 2;
-            AnimationPlay(false,false,true);
+            AnimationPlay(false, false, true);
             facingRight = true;
         }
-        else if (Input.GetKeyUp(KeyCode.D))
-            anime.walkSide(false,true);
-            
-        if (Input.GetKey(KeyCode.A))
+        else if (horizontal < 0f)
         {
-            horizontal -= 1f;
             faceingState = 3;
-            AnimationPlay(false,false,true);
+            AnimationPlay(false, false, true);
             facingRight = false;
         }
-        else if (Input.GetKeyUp(KeyCode.A))
-            anime.walkSide(false,true);
-
-        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S))
+        else if (vertical > 0f)
         {
-            anime.walkSide(false, true);
-            vertical = 0f;
-        }
-        if (Input.GetKey(KeyCode.W))
-        {
-            vertical += 1f;
             faceingState = 0;
-            AnimationPlay(true,false,false);
+            AnimationPlay(true, false, false);
         }
-        else if (Input.GetKeyUp(KeyCode.W))  
-            anime.walkNorth(false,true);
-            
-        if (Input.GetKey(KeyCode.S))
+        else if (vertical < 0f)
         {
-            vertical -= 1f;
             faceingState = 1;
-            AnimationPlay(false,true,false);
+            AnimationPlay(false, true, false);
         }
-        else if (Input.GetKeyUp(KeyCode.S))  
-            anime.walkSouth(false,true);
+        else
+        {
+            // No input - stop animations
+            anime.walkSide(false, true);
+            anime.walkNorth(false, true);
+            anime.walkSouth(false, true);
+        }
 
-        
         Vector3 change = new Vector3(horizontal, vertical, 0f).normalized * Time.deltaTime * Speed;
         transform.position += change;
-
-        if (horizontal == 0 && vertical ==0)
-            anime.walkSide(false,true);
-        if (vertical == 0 && horizontal ==0)
-            anime.walkSouth(false,true);
     }
     
 }
