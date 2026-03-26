@@ -4,9 +4,10 @@ public class ButtenInfo : MonoBehaviour
 {
     public bool isActionButten = false;
     Animator animator;
-    bool isControllerConnected = Input.GetJoystickNames().Length > 0 && Input.GetJoystickNames()[0] != "";
-    void Start()
+    bool isControllerConnected;
+    void Awake()
     {
+        isControllerConnected = Input.GetJoystickNames().Length > 0 && Input.GetJoystickNames()[0] != "";
         animator = GetComponent<Animator>();
     }
 
