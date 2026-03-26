@@ -457,7 +457,7 @@ GameObject:
   - component: {fileID: 1368814387}
   - component: {fileID: 1368814386}
   m_Layer: 0
-  m_Name: chestclose_0
+  m_Name: lootchest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -478,6 +478,10 @@ MonoBehaviour:
   lootTable:
   - lootPrefab: {fileID: 8212115755435140571, guid: 2ed47f0ec599f7a4b9e077b0ade17ced, type: 3}
     dropChance: 100
+    minQuantity: 1
+    maxQuantity: 1
+  - lootPrefab: {fileID: 1719568467132972064, guid: 90a7151e3d76ec446b449cc0a0640be5, type: 3}
+    dropChance: 20
     minQuantity: 1
     maxQuantity: 1
   closedSprite: {fileID: 5006731708747714974, guid: 87f9c65798cbf6a4586031638be0dde1, type: 3}
@@ -3891,6 +3895,10 @@ PrefabInstance:
     - target: {fileID: 6694895450435898858, guid: 8075d7e8cff511340a4710e62c1cdbb8, type: 3}
       propertyPath: m_Name
       value: spawner (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6694895450435898858, guid: 8075d7e8cff511340a4710e62c1cdbb8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8240215994108057822, guid: 8075d7e8cff511340a4710e62c1cdbb8, type: 3}
       propertyPath: m_LocalPosition.x

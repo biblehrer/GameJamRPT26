@@ -64,8 +64,8 @@ public class ChestLoot : MonoBehaviour
         //drop loot
         foreach (LootEntry entry in lootTable)
         {
-            int qty = Random.Range(entry.minQuantity, entry.maxQuantity + 1);
-            for (int i = 0; i < qty; i++)
+            int chance = Random.Range(entry.minQuantity, entry.maxQuantity + 1);
+            for (int i = 0; i < chance; i++)
             {
                 float roll = Random.Range(0f, 100f);
                 if (roll <= entry.dropChance && entry.lootPrefab != null)
