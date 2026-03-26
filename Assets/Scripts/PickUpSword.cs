@@ -3,16 +3,23 @@ using UnityEngine;
 public class PickUpSword : MonoBehaviour
 {
     public GameObject Info;
+    public Sprite[] sprites;
 
     public SwordType swordType = SwordType.WoodSword;
 
+    SpriteRenderer spriteRenderer;
     bool playerInRange;
     PlayerHealth playerHealth;
 
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         playerInRange = false;
         Info.SetActive(false);
+
+        int index = (int)swordType;
+        if (index < sprites.Length)
+            spriteRenderer.sprite = sprites[index];
     }
 
     void Update()
@@ -38,7 +45,6 @@ public class PickUpSword : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            playerHealth = col.gameObject.GetComponent<PlayerHealth>();
             playerInRange = false;
             Info.SetActive(false);
         }

@@ -125,7 +125,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -1, y: 1}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 1, y: 0}
@@ -135,7 +135,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
 --- !u!114 &4964671755267500101
 MonoBehaviour:
@@ -149,8 +149,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6db23ac5b56b764192f5052a68b8877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSword: 1
   Info: {fileID: 5473940588013299576}
+  sprites:
+  - {fileID: -7722621882136158617, guid: fcd00f67b7929ca4ab8132d3bb7a5d7d, type: 3}
+  - {fileID: 1940492987853213209, guid: fcd00f67b7929ca4ab8132d3bb7a5d7d, type: 3}
+  - {fileID: 8324109365321711838, guid: 8ad78fe2aefbc364dbe88a77f79f0bed, type: 3}
+  - {fileID: 1800607610, guid: 8ad78fe2aefbc364dbe88a77f79f0bed, type: 3}
+  - {fileID: -953288686, guid: 8ad78fe2aefbc364dbe88a77f79f0bed, type: 3}
+  - {fileID: 1143075938, guid: 8ad78fe2aefbc364dbe88a77f79f0bed, type: 3}
+  - {fileID: -1866779797, guid: 8ad78fe2aefbc364dbe88a77f79f0bed, type: 3}
+  swordType: 0
 --- !u!50 &2247252284697800754
 Rigidbody2D:
   serializedVersion: 5
@@ -205,7 +213,7 @@ Transform:
   m_GameObject: {fileID: 5473940588013299576}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.41, y: 0.88, z: 0}
+  m_LocalPosition: {x: 0.21, y: 0.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
