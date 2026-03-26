@@ -221,6 +221,50 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: SwordIcons_5
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 083e693d2634c0e438e878ae229dc59b
+      internalID: 890572039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordIcons_6
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3267bbdea0797af4eb791e2a1e92c75c
+      internalID: -1988473974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -240,6 +284,8 @@ TextureImporter:
       SwordIcons_2: 3201380264196543578
       SwordIcons_3: -1528230144964327058
       SwordIcons_4: 5541078129566901977
+      SwordIcons_5: 890572039
+      SwordIcons_6: -1988473974
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
