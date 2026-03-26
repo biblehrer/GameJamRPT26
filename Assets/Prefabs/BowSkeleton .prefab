@@ -160,6 +160,7 @@ MonoBehaviour:
   maxhealth: 30
   spriteRenderer: {fileID: 7529827098901184543}
   flashDuration: 0.1
+  invincibilityDuration: 0
 --- !u!95 &8025102652657080105
 Animator:
   serializedVersion: 7

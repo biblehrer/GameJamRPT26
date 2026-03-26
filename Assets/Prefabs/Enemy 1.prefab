@@ -55,6 +55,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropPrefab: {fileID: 4527860870087165339, guid: f3c0dc8f86f18e34dbc13c15c67ee085, type: 3}
+  spawnRadius: 3
 --- !u!114 &1635967021085833399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,6 +72,7 @@ MonoBehaviour:
   maxhealth: 30
   spriteRenderer: {fileID: 4668884782757255832}
   flashDuration: 0.1
+  invincibilityDuration: 0
 --- !u!114 &8792106970697582768
 MonoBehaviour:
   m_ObjectHideFlags: 0
