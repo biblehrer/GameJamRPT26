@@ -1,86 +1,81 @@
-using System.Threading;
-using JetBrains.Annotations;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
     public GameObject[] monsters;
-    bool playerinRange = false;
+    bool playerInRange = false;
     float timer = 0f;
-    public const float spawndauer = 6f;
-    public float gegnerprowelle = 5f; 
+    public const float spawnDauer = 6f;
+    public float gegnerProWelle = 5f;
     public int wellen = 0;
     public float xMaxRange;
     public float yMaxRange;
     public float yMinRange;
     public float xMinRange;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
-        if(playerinRange)     
-        {        
+        if (playerInRange)
+        {
             timer += Time.deltaTime;
 
-            if(wellen >= 0)
+            if (wellen >= 0)
             {
-                if (timer >= spawndauer)
+                if (timer >= spawnDauer)
                 {
-                    for(int a = 0; a < gegnerprowelle; a++)
+                    for (int a = 0; a < gegnerProWelle; a++)
                     {
-                        spawnmonster();
+                        SpawnMonster();
                     }
                     timer = 0f;
-                    wellen--;  
-                }  
+                    wellen--;
+                }
             }
-            else 
+            else
             {
                 Destroy(gameObject);
-            }        
+            }
         }
     }
 
-    void spawnmonster()
+    void SpawnMonster()
     {
-        int maxversuche = 10;
+        int maxVersuche = 10;
         int randomIndex = Random.Range(0, monsters.Length);
-        for (int versuche = 0; versuche < maxversuche; versuche++ )
-        {    
-            float x = Random.Range(xMinRange, xMaxRange);
-            float y = Random.Range(yMinRange, yMaxRange);
-            Vector3 pos = new Vector3(x, y, 0); 
-            if(collisioncheck(pos))
+
+        for (int versuche = 0; versuche < maxVersuche; versuche++)
+        {
+            Vector3 spawnPos = new Vector3(
+                transform.position.x + Random.Range(xMinRange, xMaxRange),
+                transform.position.y + Random.Range(yMinRange, yMaxRange),
+                0f
+            );
+
+            if (CollisionCheck(spawnPos))
             {
-                Instantiate(monsters[randomIndex], pos, Quaternion.identity);
+                Instantiate(monsters[randomIndex], spawnPos, Quaternion.identity);
                 break;
             }
             else
             {
                 Debug.Log("Spawn belegt");
-            }                 
-        }  
+            }
+        }
     }
 
-    bool collisioncheck(Vector3 pos)
+    bool CollisionCheck(Vector3 pos)
     {
-        float checkradius = 1f;
+        float checkRadius = 1f;
         LayerMask mask = LayerMask.GetMask("Player", "Enemy");
-        Collider2D hit = Physics2D.OverlapCircle(pos, checkradius, mask);
+        Collider2D hit = Physics2D.OverlapCircle(pos, checkRadius, mask);
         return hit == null;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            playerinRange = true;
+            playerInRange = true;
         }
     }
 }
