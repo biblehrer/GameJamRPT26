@@ -48,6 +48,5 @@ public class PickUpSword : MonoBehaviour
             playerInRange = false;
             Info.SetActive(false);
         }
-
     }
 }
