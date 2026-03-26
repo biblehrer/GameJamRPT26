@@ -33,7 +33,7 @@ public class Attack_1 : MonoBehaviour
 
         if (!attacking)
         {
-            if (Input.GetButton("ActionButten"))
+            if (Input.GetButton("Use"))
             {
                 StartAttack();
                 Attack();

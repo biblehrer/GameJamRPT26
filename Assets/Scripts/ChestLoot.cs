@@ -47,7 +47,7 @@ public class ChestLoot : MonoBehaviour
         float dist = Vector2.Distance(transform.position, _player.position);
         _playerNearby = dist <= interactRange;
 
-        if (_playerNearby && Input.GetButton("ActionButten"))
+        if (_playerNearby && Input.GetButton("Use"))
         {
             OpenChest();
         }
