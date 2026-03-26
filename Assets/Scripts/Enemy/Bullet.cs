@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Bullet : MonoBehaviour
 {
@@ -15,24 +14,28 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     private int damage = 10;
 
-
     private Rigidbody2D rb;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0f;
+    }
 
     public void SetDirection(Vector2 dir)
     {
         rb = GetComponent<Rigidbody2D>();
         //rb.gravityScale = 0f;
         Destroy(gameObject, lifeTime);
-
         Vector2 moveDirection = dir.normalized;
         //rotate bullet sprite
-
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
         rb.linearVelocity = moveDirection * speed;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    // OnTriggerEnter2D 
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         // Check if hit player
         if (collision.gameObject.CompareTag("Player"))
@@ -43,6 +46,10 @@ public class Bullet : MonoBehaviour
                 playerHealth.TakeDamage(damage);
             }
             Destroy(gameObject); // Destroy bullet after hit
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 }
