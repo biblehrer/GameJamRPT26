@@ -36,7 +36,12 @@ public class PickUpSword : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D col)
     {
-        Info.SetActive(false);
-        playerInRange = false;
+        if (col.gameObject.CompareTag("Player"))
+        {
+            playerHealth = col.gameObject.GetComponent<PlayerHealth>();
+            playerInRange = false;
+            Info.SetActive(false);
+        }
+
     }
 }
