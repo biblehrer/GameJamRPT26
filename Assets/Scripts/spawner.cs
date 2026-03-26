@@ -28,7 +28,7 @@ public class spawner : MonoBehaviour
         {        
             timer += Time.deltaTime;
 
-            if(wellen < 3 )
+            if(wellen >= 0)
             {
                 if (timer >= spawndauer)
                 {

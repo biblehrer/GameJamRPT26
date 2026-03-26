@@ -261,9 +261,11 @@ MonoBehaviour:
   lootitems:
   - {fileID: 8212115755435140571, guid: 2ed47f0ec599f7a4b9e077b0ade17ced, type: 3}
   - {fileID: 1719568467132972064, guid: 90a7151e3d76ec446b449cc0a0640be5, type: 3}
+  - {fileID: 4790362789995417706, guid: f2cd9618502ff0a40b0016b13a744a7b, type: 3}
   dropchance:
   - 0.2
   - 0.1
+  - 0.04
 --- !u!1 &8134945522160888857
 GameObject:
   m_ObjectHideFlags: 0
