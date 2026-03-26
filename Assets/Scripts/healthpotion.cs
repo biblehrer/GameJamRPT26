@@ -3,6 +3,7 @@ using System.Collections;
 
 public class HealthPotion : MonoBehaviour
 {
+    public GameObject Info;
     public int type; // 0 = Heal, 1 = Damage Boost, 2 = Speed Boost
     public int healAmount = 25;
 
@@ -23,6 +24,7 @@ public class HealthPotion : MonoBehaviour
 
     void Start()
     {
+        Info.SetActive(false);
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         type = Random.Range(0, 3);
@@ -46,6 +48,7 @@ public class HealthPotion : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
+            Info.SetActive(true);
 
             playerHealth = other.GetComponent<PlayerStats>();
             playerMovement = other.GetComponent<PlayerMovement>();
@@ -57,6 +60,7 @@ public class HealthPotion : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
+            Info.SetActive(false);
 
             playerHealth = null;
             playerMovement = null;

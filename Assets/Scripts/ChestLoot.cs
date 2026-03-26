@@ -14,6 +14,7 @@ public class LootEntry
 
 public class ChestLoot : MonoBehaviour
 {
+    public GameObject Info;
     [Header("Loot Table")]
     public List<LootEntry> lootTable = new List<LootEntry>();
 
@@ -32,6 +33,7 @@ public class ChestLoot : MonoBehaviour
 
     void Start()
     {
+        Info.SetActive(false);
         _spriteRenderer = GetComponent<SpriteRenderer>();
         if (closedSprite != null)
             _spriteRenderer.sprite = closedSprite;
@@ -47,6 +49,8 @@ public class ChestLoot : MonoBehaviour
         float dist = Vector2.Distance(transform.position, _player.position);
         _playerNearby = dist <= interactRange;
 
+        if (_playerNearby && !_isOpen) Info.SetActive(true);
+        if (!_playerNearby) Info.SetActive(false);
         if (_playerNearby && Input.GetButton("Use"))
         {
             OpenChest();
@@ -55,6 +59,7 @@ public class ChestLoot : MonoBehaviour
 
     void OpenChest()
     {
+        Info.SetActive(false);
         _isOpen = true;
 
         // Swap sprite

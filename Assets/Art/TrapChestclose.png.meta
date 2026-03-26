@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b10450de3ec0df041b97205f5b82199b
+guid: 6eb5f794b99c67f4586f5e6367d306f0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1451313871752186337
-    second: MouseClick_0
+      213: 6759079224682166875
+    second: TrapChestclose_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 32
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: 4
     textureCompression: 1
@@ -100,89 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MouseClick_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 8
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2a18908842910a44baad8bdadf43c1c5
-      internalID: 1451313871752186337
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MouseClick_1
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 8
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 278480eb986bcd846864cb453cca80e1
-      internalID: -1372997202
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MouseClick_2
+      name: TrapChestclose_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 7
-        height: 8
+        width: 16
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 225ed0f1cdc241d4b962b49477b84c62
-      internalID: 1888760518
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MouseClick_3
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 0
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 962c869b8c692f44a8998f1afa1803f3
-      internalID: 639655160
+      spriteID: b5a37e36eb21dcd50800000000000000
+      internalID: 6759079224682166875
       vertices: []
       indices: 
       edges: []
@@ -191,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 07fe3729b7400124881d71d5ea1ce4ca
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -201,10 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      MouseClick_0: 1451313871752186337
-      MouseClick_1: -1372997202
-      MouseClick_2: 1888760518
-      MouseClick_3: 639655160
+      TrapChestclose_0: 6759079224682166875
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

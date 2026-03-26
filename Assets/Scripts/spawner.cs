@@ -5,7 +5,7 @@ public class Spawner : MonoBehaviour
     public GameObject[] monsters;
     bool playerInRange = false;
     float timer = 0f;
-    public const float spawnDauer = 6f;
+    public float spawnDauer = 6f;
     public float gegnerProWelle = 5f;
     public int wellen = 0;
     public float xMaxRange;

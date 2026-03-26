@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b495153e59374244e8330264c60a0c4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Info: {fileID: 0}
   lootTable:
   - lootPrefab: {fileID: 8212115755435140571, guid: 2ed47f0ec599f7a4b9e077b0ade17ced, type: 3}
     dropChance: 100
@@ -179,7 +180,7 @@ Transform:
   m_GameObject: {fileID: 1448830693596048819}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.58, y: -6.62, z: -0.010553159}
+  m_LocalPosition: {x: 1.58, y: -5.38, z: -0.010553159}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -245,12 +246,13 @@ MonoBehaviour:
   monsters:
   - {fileID: 6432783889078447126, guid: 782388f99dc6ad44f867b03f21d7b7d3, type: 3}
   - {fileID: 2089656015916378151, guid: 7b47047fcddc99a4c96762de2daee86f, type: 3}
-  gegnerprowelle: 5
+  spawnDauer: 6
+  gegnerProWelle: 5
   wellen: 3
-  xMaxRange: 7
-  yMaxRange: 7
-  yMinRange: -5
-  xMinRange: -5
+  xMaxRange: 5
+  yMaxRange: 5
+  yMinRange: 1
+  xMinRange: 1
 --- !u!58 &6656365225789696657
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -335,7 +337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRadius: 10
-  spawner: {fileID: 1448830693596048819}
+  Spawner: {fileID: 1448830693596048819}
 --- !u!1 &3170919025314597050
 GameObject:
   m_ObjectHideFlags: 0
@@ -10869,7 +10871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRadius: 10
-  spawner: {fileID: 1448830693596048819}
+  Spawner: {fileID: 1448830693596048819}
 --- !u!1 &5617303075845963208
 GameObject:
   m_ObjectHideFlags: 0
@@ -11441,6 +11443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b495153e59374244e8330264c60a0c4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Info: {fileID: 0}
   lootTable:
   - lootPrefab: {fileID: 8212115755435140571, guid: 2ed47f0ec599f7a4b9e077b0ade17ced, type: 3}
     dropChance: 100
@@ -11602,6 +11605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b495153e59374244e8330264c60a0c4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Info: {fileID: 0}
   lootTable:
   - lootPrefab: {fileID: 8212115755435140571, guid: 2ed47f0ec599f7a4b9e077b0ade17ced, type: 3}
     dropChance: 100
