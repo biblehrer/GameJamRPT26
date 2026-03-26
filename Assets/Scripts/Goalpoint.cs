@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class goalpoint : MonoBehaviour
+public class Goalpoint : MonoBehaviour
 {
     [Header("Game UI")]
     public GameObject victoryCanvas;
     public GameObject gameOverCanvas;
 
-    public PlayerHealth playerHealth;
+    public PlayerStats playerHealth;
     private bool isGameOver = false;
     private void Start()
     {

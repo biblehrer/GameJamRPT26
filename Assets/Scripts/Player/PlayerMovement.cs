@@ -1,11 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Security.Cryptography;
-using JetBrains.Annotations;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {

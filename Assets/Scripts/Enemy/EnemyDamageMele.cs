@@ -31,7 +31,7 @@ public class EnemyDamageMele : MonoBehaviour
 
     void Attack()
     {
-        PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+        PlayerStats playerHealth = player.GetComponent<PlayerStats>();
         playerHealth.health -= damageAmount; //damage abziehen
     }
 }

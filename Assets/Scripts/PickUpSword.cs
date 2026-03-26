@@ -9,7 +9,7 @@ public class PickUpSword : MonoBehaviour
 
     SpriteRenderer spriteRenderer;
     bool playerInRange;
-    PlayerHealth playerHealth;
+    PlayerStats playerHealth;
 
     void Start()
     {
@@ -35,7 +35,7 @@ public class PickUpSword : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            playerHealth = col.gameObject.GetComponent<PlayerHealth>();
+            playerHealth = col.gameObject.GetComponent<PlayerStats>();
             playerInRange = true;
             Info.SetActive(true);
         }

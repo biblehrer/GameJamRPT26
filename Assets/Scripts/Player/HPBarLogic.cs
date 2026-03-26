@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class HPBarLogic : MonoBehaviour
 {
-    public PlayerHealth PlayerHp;
+    public PlayerStats PlayerHp;
     public Slider slider;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

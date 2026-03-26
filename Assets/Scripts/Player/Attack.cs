@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class Attack_1 : MonoBehaviour
+public class Attack : MonoBehaviour
 {   
     public GameObject[] hitbox;
 
-    PlayerHealth playerStats;
+    PlayerStats playerStats;
     PlayerMovement playerMovement;
 
     public Transform RotationArea;
@@ -22,7 +22,7 @@ public class Attack_1 : MonoBehaviour
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
-        playerStats    = GetComponent<PlayerHealth>();
+        playerStats    = GetComponent<PlayerStats>();
     }
 
     void Update()
@@ -36,7 +36,7 @@ public class Attack_1 : MonoBehaviour
             if (Input.GetButton("Use"))
             {
                 StartAttack();
-                Attack();
+                ExecuteAttack();
             }
         }
 
@@ -53,7 +53,7 @@ public class Attack_1 : MonoBehaviour
         }
     }
 
-    void Attack()
+    void ExecuteAttack()
     {
         attacking = true;
         hitbox[selectedSword].SetActive(true);

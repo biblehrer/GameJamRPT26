@@ -40,7 +40,7 @@ public class Bullet : MonoBehaviour
         // Check if hit player
         if (collision.gameObject.CompareTag("Player"))
         {
-            PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+            PlayerStats playerHealth = collision.gameObject.GetComponent<PlayerStats>();
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(damage);

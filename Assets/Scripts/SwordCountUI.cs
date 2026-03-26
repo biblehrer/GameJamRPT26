@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SwordCountUI : MonoBehaviour
 {
-    public PlayerHealth playerHealth;
+    public PlayerStats playerHealth;
     public TextMeshProUGUI[] swordTexts;
     void Start()
     {

@@ -17,7 +17,7 @@ public class HealthPotion : MonoBehaviour
 
     private bool playerInRange = false;
 
-    private PlayerHealth playerHealth;
+    private PlayerStats playerHealth;
     private PlayerMovement playerMovement;
     private AttackHitBox attackHitBox; 
     private SpriteRenderer spriteRenderer;
@@ -53,7 +53,7 @@ public class HealthPotion : MonoBehaviour
         {
             playerInRange = true;
 
-            playerHealth = other.GetComponent<PlayerHealth>();
+            playerHealth = other.GetComponent<PlayerStats>();
             playerMovement = other.GetComponent<PlayerMovement>();
             attackHitBox = other.GetComponent<AttackHitBox>(); 
 

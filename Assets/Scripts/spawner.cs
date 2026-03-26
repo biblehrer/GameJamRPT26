@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
-public class spawner : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
     public GameObject[] monsters;
     bool playerinRange = false;

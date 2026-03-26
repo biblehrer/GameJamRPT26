@@ -5,7 +5,7 @@ public class FusionPortal : MonoBehaviour
     public GameObject Info;
     public int deathtimer = 10;
     bool playerInRange;
-    PlayerHealth playerHealth;
+    PlayerStats playerHealth;
     void Start()
     {
         Destroy(gameObject,deathtimer);
@@ -24,7 +24,7 @@ public class FusionPortal : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            playerHealth = col.gameObject.GetComponent<PlayerHealth>();
+            playerHealth = col.gameObject.GetComponent<PlayerStats>();
             playerInRange = true;
             Info.SetActive(true);
         }
