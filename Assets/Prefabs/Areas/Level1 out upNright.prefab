@@ -246,7 +246,7 @@ MonoBehaviour:
   - {fileID: 6432783889078447126, guid: 782388f99dc6ad44f867b03f21d7b7d3, type: 3}
   - {fileID: 2089656015916378151, guid: 7b47047fcddc99a4c96762de2daee86f, type: 3}
   gegnerprowelle: 5
-  wellen: 0
+  wellen: 3
   xMaxRange: 7
   yMaxRange: 7
   yMinRange: -5
