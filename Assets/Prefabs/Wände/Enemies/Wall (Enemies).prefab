@@ -9,14 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 357745258199400835}
-  - component: {fileID: 7447224676936640498}
   - component: {fileID: 4911760149382779018}
   - component: {fileID: 2650958405949264003}
   - component: {fileID: 6976358892946286819}
   - component: {fileID: 1389794151905682824}
   m_Layer: 0
   m_Name: Barrel
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,22 +35,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 372220356319248867}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7447224676936640498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2683923852231384534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df5f8b1d55f3c8c49b54ad36e0b1cb1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  maxhealth: 100
-  spriteRenderer: {fileID: 4911760149382779018}
-  flashDuration: 0.1
 --- !u!212 &4911760149382779018
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -228,7 +211,7 @@ Transform:
   m_GameObject: {fileID: 3806595524539402287}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6, y: 0, z: 0}
+  m_LocalPosition: {x: -17.647198, y: -0.7910814, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -261,14 +244,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3325666307314232556}
-  - component: {fileID: 4044472361388463849}
   - component: {fileID: 3701635320571955069}
   - component: {fileID: 8967894633922693982}
   - component: {fileID: 1391308005908448953}
   - component: {fileID: 6276718602503573782}
   m_Layer: 0
   m_Name: Barrel
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -288,22 +270,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 372220356319248867}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4044472361388463849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4756434756449166980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df5f8b1d55f3c8c49b54ad36e0b1cb1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  maxhealth: 100
-  spriteRenderer: {fileID: 3701635320571955069}
-  flashDuration: 0.1
 --- !u!212 &3701635320571955069
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -463,14 +429,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4251337198254437474}
-  - component: {fileID: 1416870498888217975}
   - component: {fileID: 9117607854584661150}
   - component: {fileID: 234973460463766476}
   - component: {fileID: 3936931809860475041}
   - component: {fileID: 6495440194858420434}
   m_Layer: 0
   m_Name: Barrel
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -490,22 +455,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 372220356319248867}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1416870498888217975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6539645278111065369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df5f8b1d55f3c8c49b54ad36e0b1cb1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  maxhealth: 100
-  spriteRenderer: {fileID: 9117607854584661150}
-  flashDuration: 0.1
 --- !u!212 &9117607854584661150
 SpriteRenderer:
   m_ObjectHideFlags: 0
