@@ -47,9 +47,5 @@ public class Bullet : MonoBehaviour
             }
             Destroy(gameObject); // Destroy bullet after hit
         }
-        else
-        {
-            Destroy(gameObject);
-        }
     }
 }
