@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class RangedEnemy : MonoBehaviour
 {
@@ -39,13 +41,7 @@ public class RangedEnemy : MonoBehaviour
 
         if (distanceToTarget <= distanceToShoot)
         {
-            DelayedShooting();
-        }
-        else
-        {
-            // Reset if player leaves range
-            hasLockedAim = false;
-            aimTimer = 0f;
+            Shoot();
         }
     }
     private void Shoot()
@@ -53,20 +49,25 @@ public class RangedEnemy : MonoBehaviour
         fireTimer -= Time.deltaTime;
 
         if (fireTimer <= 0f)
-        {
-            // Spawn bullet
-            GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
-
+        { 
             // Calculate direction to target
-            Vector2 direction = (target.position - firingPoint.position).normalized;
-
-            Bullet bullet = bulletObj.GetComponent<Bullet>();
-            if (bullet != null)
-            {
-                bullet.SetDirection(direction);
-            }
+            Vector2 direction = (target.position - firingPoint.position).normalized;           
+            StartCoroutine(DelayShoot(direction));
 
             fireTimer = fireRate;
+        }
+    }
+
+    public IEnumerator DelayShoot(Vector2 direction)
+    {
+        yield return new WaitForSeconds(1); 
+        // Spawn bullet
+        GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
+
+        Bullet bullet = bulletObj.GetComponent<Bullet>();
+        if (bullet != null)
+        {
+            bullet.SetDirection(direction);
         }
     }
 
@@ -78,25 +79,4 @@ public class RangedEnemy : MonoBehaviour
             target = player.transform;
         }
     }
-
-    private void DelayedShooting()
-    {
-        // lock the direction on aim
-        if (!hasLockedAim)
-        {
-            direction = (target.position - firingPoint.position).normalized;
-            hasLockedAim = true;
-            aimTimer = aimDelay;
-        }
-
-        // wait before shooting
-        aimTimer -= Time.deltaTime;
-
-        if (aimTimer <= 0f)
-        {
-            Shoot();
-            hasLockedAim = false; // Reset
-        }
-    }
 }
-

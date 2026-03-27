@@ -62,16 +62,15 @@ public class EnemyStats : MonoBehaviour
 
         if (health <= 0)
         {
-            enemyLoot.droploot();
+            if (enemyLoot != null)
+            {
+                enemyLoot.droploot();
+            }
             if (dropScript != null)
             {
                 dropScript.whenDeath();
-                Destroy(gameObject);
             }
-            else
-            {
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
         }
     }
 
