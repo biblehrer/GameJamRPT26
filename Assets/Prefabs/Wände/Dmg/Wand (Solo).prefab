@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df5f8b1d55f3c8c49b54ad36e0b1cb1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  maxhealth: 100
+  health: 30
+  maxhealth: 30
   spriteRenderer: {fileID: 5823827475299465833}
   flashDuration: 0.1
   invincibilityDuration: 1

@@ -239,3 +239,4 @@ MonoBehaviour:
   openSprite: {fileID: 9067068299393455667, guid: 26206915f3d78c440b4c341975e8aa24, type: 3}
   lootDropRadius: 0.5
   interactRange: 1.5
+  chestSound: {fileID: 0}
