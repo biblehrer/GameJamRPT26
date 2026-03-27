@@ -248,7 +248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3286766689841028660, guid: d38f27232738ce4408ac202d6274b508, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4166229639541909882, guid: d38f27232738ce4408ac202d6274b508, type: 3}
       propertyPath: speed
@@ -260,7 +260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5997493897409575417, guid: d38f27232738ce4408ac202d6274b508, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -275,6 +275,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 203443006072464632, guid: 4bc394b410953614e8b4aad156f93224, type: 3}
+      propertyPath: m_TagString
+      value: wall
+      objectReference: {fileID: 0}
     - target: {fileID: 560394570138295040, guid: 4bc394b410953614e8b4aad156f93224, type: 3}
       propertyPath: m_Name
       value: Grid von mert
@@ -318,6 +322,14 @@ PrefabInstance:
     - target: {fileID: 3080193314679034213, guid: 4bc394b410953614e8b4aad156f93224, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5110249720175496250, guid: 4bc394b410953614e8b4aad156f93224, type: 3}
+      propertyPath: m_TagString
+      value: wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992213463198878733, guid: 4bc394b410953614e8b4aad156f93224, type: 3}
+      propertyPath: m_TagString
+      value: wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -433,6 +445,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7434186639911932212, guid: b8cd80038a930d44f89b72771ec8d708, type: 3}
+      propertyPath: Spawner
+      value: 
+      objectReference: {fileID: 1085585844}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -794,6 +810,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 261dad92f666ad5429f3403bb8909b04, type: 3}
+--- !u!1 &1085585844 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7334581287753419119, guid: b8cd80038a930d44f89b72771ec8d708, type: 3}
+  m_PrefabInstance: {fileID: 418412801}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1314070525
 PrefabInstance:
   m_ObjectHideFlags: 0
