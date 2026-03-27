@@ -76,7 +76,7 @@ public class HealthPotion : MonoBehaviour
                 break;
 
             case 1: //  Damage Boost
-                StartCoroutine(DoDamageBoost(boostMultiplier, boostDuration));
+                playerHealth?.DamageBoost(boostMultiplier, boostDuration);
                 break;
 
             case 2: //  Speed Boost
@@ -84,15 +84,6 @@ public class HealthPotion : MonoBehaviour
                 break;
         }
     }
-
-    IEnumerator DoDamageBoost(float multiplier, float duration)
-    {
-        AttackHitBox.damageMultiplier *= multiplier;
-        yield return new WaitForSeconds(duration);
-        AttackHitBox.damageMultiplier /= multiplier;
-    }
-
-
 
     void SetPotionLook()
     {

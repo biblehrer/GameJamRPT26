@@ -48,7 +48,6 @@ public class EnemyStats : MonoBehaviour
 
         health -= amount;
         health = Mathf.Clamp(health, 0, maxhealth);
-        Debug.Log("Enemy Hit! Health Left: " + health);
 
         // Flash red
         if (spriteRenderer != null)
