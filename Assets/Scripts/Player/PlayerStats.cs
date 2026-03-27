@@ -45,10 +45,11 @@ public class PlayerStats : MonoBehaviour
     {
         health = Mathf.Clamp(health, 0, maxHealth);
         AutoSelectStrongestSword();
+        invincibleTime += Time.deltaTime;
     }
     public void TakeDamage(int amount)
     {
-        if (invincibleTime > 1)
+        if (invincibleTime > 0.3f)
         {
             health -= amount;
             invincibleTime = 0;
@@ -64,7 +65,6 @@ public class PlayerStats : MonoBehaviour
                 StartCoroutine(FlashRed());
             }
         }
-        else invincibleTime += Time.deltaTime;
     }
 
     private IEnumerator FlashRed()
