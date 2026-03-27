@@ -30,8 +30,6 @@ public class HealthPotion : MonoBehaviour
         type = Random.Range(0, 3);
 
         SetPotionLook();
-
-        Debug.Log("Potion Type: " + type);
     }
 
     void Update()

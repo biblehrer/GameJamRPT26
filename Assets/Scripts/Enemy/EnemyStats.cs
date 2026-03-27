@@ -14,10 +14,12 @@ public class EnemyStats : MonoBehaviour
     private bool isInvincible = false;
 
     private EnemyDropRan dropScript;
+    private LootMonster enemyLoot;
 
     private void Start()
     {
         dropScript = GetComponent<EnemyDropRan>();
+        enemyLoot = GetComponent<LootMonster>();
 
         if (spriteRenderer == null)
         {
@@ -60,6 +62,7 @@ public class EnemyStats : MonoBehaviour
 
         if (health <= 0)
         {
+            enemyLoot.droploot();
             if (dropScript != null)
             {
                 dropScript.whenDeath();
