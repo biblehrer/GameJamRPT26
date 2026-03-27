@@ -54,11 +54,8 @@ public class RangedEnemy : MonoBehaviour
 
         if (fireTimer <= 0f)
         {
-            // Spawn bullet
+            //spawn bullet
             GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
-
-            // Calculate direction to target
-            Vector2 direction = (target.position - firingPoint.position).normalized;
 
             Bullet bullet = bulletObj.GetComponent<Bullet>();
             if (bullet != null)
