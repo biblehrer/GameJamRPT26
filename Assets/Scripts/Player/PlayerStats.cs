@@ -48,7 +48,7 @@ public class PlayerStats : MonoBehaviour
     }
     public void TakeDamage(int amount)
     {
-        if (invincibleTime !> 1)
+        if (invincibleTime > 1)
         {
             health -= amount;
             invincibleTime = 0;
