@@ -1,3 +1,4 @@
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class Attack : MonoBehaviour
@@ -6,12 +7,17 @@ public class Attack : MonoBehaviour
 
     PlayerStats playerStats;
     PlayerMovement playerMovement;
+    public Camera cam;
 
     public Transform RotationArea;
     private Vector3 startRotation;
     private Vector3 endRotation;
     private float rotationTime = 0f;
     private bool rotationDone = false;
+
+    Vector2 mousePos;
+    Vector2 rightStick;
+    public Rigidbody2D rb;
 
     private bool attacking = false;
     private float cooldown = 0.50f;
@@ -51,8 +57,34 @@ public class Attack : MonoBehaviour
                 DeactivateAllSwords();
             }
         }
+
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        rightStick = new Vector2(Input.GetAxisRaw("RightStickX"), Input.GetAxisRaw("RightStickY"));
     }
 
+    void FixedUpdate()
+    {
+        Vector2 lookDir = mousePos - rb.position;
+        float angle = Mathf.Atan2(lookDir.y,lookDir.x) * Mathf.Rad2Deg;
+        rb.rotation = angle;
+    }
+
+    int GetFacingFromMouse()
+    {
+        Vector2 lookDir = mousePos - rb.position;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg -90;
+
+        if (lookDir.magnitude < 0.1f)
+        return playerMovement.faceingState;
+
+        // Normalize to 0–360
+        if (angle < 0) angle += 360f;
+
+        if (angle >= 315f || angle < 45f)  return 0; // Right
+        if (angle >= 45f  && angle < 135f) return 3; // Up
+        if (angle >= 135f && angle < 225f) return 1; // Left
+        return 2; // Down
+    }
     void ExecuteAttack()
     {
         attacking = true;
@@ -61,7 +93,7 @@ public class Attack : MonoBehaviour
 
     void StartAttack()
     {
-        switch (playerMovement.faceingState)
+        switch (GetFacingFromMouse())
         {
             case 0:
                 startRotation = new Vector3(0, 0, 30f);
