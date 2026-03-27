@@ -17,7 +17,6 @@ public class Attack : MonoBehaviour
 
     Vector2 mousePos;
     Vector2 rightStick;
-    public Rigidbody2D rb;
 
     private bool attacking = false;
     private float cooldown = 0.50f;
@@ -64,15 +63,13 @@ public class Attack : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 lookDir = mousePos - rb.position;
-        float angle = Mathf.Atan2(lookDir.y,lookDir.x) * Mathf.Rad2Deg;
-        rb.rotation = angle;
+
     }
 
     int GetFacingFromMouse()
     {
-        Vector2 lookDir = mousePos - rb.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg -90;
+        Vector2 lookDir = mousePos - (Vector2) transform.position;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg-90;
 
         if (lookDir.magnitude < 0.1f)
         return playerMovement.faceingState;

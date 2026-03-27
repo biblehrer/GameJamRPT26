@@ -1,11 +1,13 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 
 public class PlayerStats : MonoBehaviour
 {
     public int health = 100;
     public int maxHealth = 100;
+    public float invincibleTime;
     
     public Dictionary<SwordType, int> swordCollection = new Dictionary<SwordType, int>()
     {
@@ -46,18 +48,23 @@ public class PlayerStats : MonoBehaviour
     }
     public void TakeDamage(int amount)
     {
-        health -= amount;
-
-        if (health <= 0)
+        if (invincibleTime !> 1)
         {
-            health = 0;
-        }
+            health -= amount;
+            invincibleTime = 0;
 
-        // Flash red
-        if (spriteRenderer != null)
-        {
-            StartCoroutine(FlashRed());
+            if (health <= 0)
+            {
+                health = 0;
+            }
+
+            // Flash red
+            if (spriteRenderer != null)
+            {
+                StartCoroutine(FlashRed());
+            }
         }
+        else invincibleTime += Time.deltaTime;
     }
 
     private IEnumerator FlashRed()
