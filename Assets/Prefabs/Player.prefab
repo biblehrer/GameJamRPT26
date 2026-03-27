@@ -1587,7 +1587,7 @@ MonoBehaviour:
   playerSprite: {fileID: 5262970648400232478}
   anime: {fileID: 6346144094909248535}
   Sprite: {fileID: 5948840454090086496}
-  speed: 1
+  speed: 2
   rotationSpeed: 5
   faceingState: 0
 --- !u!114 &4504766665102384803
