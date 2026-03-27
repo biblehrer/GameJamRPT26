@@ -22,6 +22,8 @@ public class HealthPotion : MonoBehaviour
     private PlayerMovement playerMovement;
     private SpriteRenderer spriteRenderer;
 
+    public AudioClip drinkSound;
+
     void Start()
     {
         Info.SetActive(false);
@@ -36,6 +38,10 @@ public class HealthPotion : MonoBehaviour
     {
         if (playerInRange && Input.GetButton("ActionButten"))
         {
+            if (drinkSound != null)
+            {
+                AudioSource.PlayClipAtPoint(drinkSound, transform.position);
+            }
             ApplyEffect();
             Destroy(gameObject);
         }

@@ -60,7 +60,7 @@ public class RangedEnemy : MonoBehaviour
 
     public IEnumerator DelayShoot(Vector2 direction)
     {
-        yield return new WaitForSeconds(1); 
+        yield return new WaitForSeconds(0.15f); 
         // Spawn bullet
         GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
 

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Net.NetworkInformation;
 using UnityEngine;
 
 [System.Serializable]
@@ -31,7 +30,8 @@ public class ChestLoot : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private Transform _player;
 
-    public AudioSource Chest;
+    [Header("Audio")]
+    public AudioSource chestSound; // Assign your AudioSource component here
 
     void Start()
     {
@@ -44,6 +44,7 @@ public class ChestLoot : MonoBehaviour
         if (playerObj != null)
             _player = playerObj.transform;
     }
+
     void Update()
     {
         if (_isOpen || _player == null) return;
@@ -53,7 +54,9 @@ public class ChestLoot : MonoBehaviour
 
         if (_playerNearby && !_isOpen) Info.SetActive(true);
         if (!_playerNearby) Info.SetActive(false);
-        if (_playerNearby && Input.GetButton("Use"))
+
+        // Changed to GetButtonDown to prevent the chest from "machine-gunning" sound/loot
+        if (_playerNearby && Input.GetButtonDown("Use"))
         {
             OpenChest();
         }
@@ -64,15 +67,21 @@ public class ChestLoot : MonoBehaviour
         Info.SetActive(false);
         _isOpen = true;
 
+        // Play the sound
+        if (chestSound != null)
+        {
+            chestSound.Play();
+        }
+
         // Swap sprite
         if (openSprite != null)
             _spriteRenderer.sprite = openSprite;
 
-        //drop loot
+        // drop loot
         foreach (LootEntry entry in lootTable)
         {
-            int chance = Random.Range(entry.minQuantity, entry.maxQuantity + 1);
-            for (int i = 0; i < chance; i++)
+            int quantity = Random.Range(entry.minQuantity, entry.maxQuantity + 1);
+            for (int i = 0; i < quantity; i++)
             {
                 float roll = Random.Range(0f, 100f);
                 if (roll <= entry.dropChance && entry.lootPrefab != null)

@@ -102,6 +102,7 @@ MonoBehaviour:
   distanceToShoot: 7
   fireRate: 2
   damageToPlayer: 1
+  aimDelay: 0.4
 --- !u!114 &3754715036414163395
 MonoBehaviour:
   m_ObjectHideFlags: 0
