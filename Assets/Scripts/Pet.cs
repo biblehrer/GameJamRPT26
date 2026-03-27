@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
-using TMPro; // If using legacy UI Text instead, use UnityEngine.UI
+using TMPro;
 
 public class Pet : MonoBehaviour
 {
@@ -9,19 +9,14 @@ public class Pet : MonoBehaviour
 
     [Header("Follow Settings")]
     public float followSpeed = 3f;
-    public float followStopDistance = 1.5f; // Pet stops when this close to player
+    public float followStopDistance = 1.5f;
 
     [Header("UI")]
-    [Tooltip("Assign a TextMeshProUGUI element in the Canvas")]
     public TextMeshProUGUI discoveryText;
     public float textDisplayDuration = 3f;
 
-    [Header("Sprites")]
-    public Sprite idleSprite;
-    public Sprite followingSprite;
-
-    private SpriteRenderer spriteRenderer;
-
+    [Header("Animation")]
+    public Animator animator; 
 
     private Transform player;
     private bool isFound = false;
@@ -30,26 +25,23 @@ public class Pet : MonoBehaviour
     void Start()
     {
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-
         if (playerObj != null)
             player = playerObj.transform;
 
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (animator == null)
+            animator = GetComponent<Animator>();
 
         if (discoveryText != null)
             discoveryText.gameObject.SetActive(false);
-
-        // Set first sprite
-        if (spriteRenderer != null && idleSprite != null)
-            spriteRenderer.sprite = idleSprite;
     }
+
     void Update()
     {
         if (player == null) return;
 
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-        //E to collect
+        // E to collect
         if (!isFound)
         {
             if (distanceToPlayer <= interactRange && Input.GetKeyDown(KeyCode.E))
@@ -58,65 +50,72 @@ public class Pet : MonoBehaviour
             }
         }
 
-        // ── After found: follow the player 
+        // Follow the player
         if (isFollowing)
         {
             FollowPlayer(distanceToPlayer);
         }
+    }
 
-        void DiscoverPet()
+    void DiscoverPet()
+    {
+        isFound = true;
+        isFollowing = true;
+        Debug.Log("You Found Struppi!");
+
+        // Trigger walking animation
+        if (animator != null)
         {
-            isFound = true;
-            isFollowing = true;
-
-            Debug.Log("You Found Struppi!");
-
-            // switch to walk sprite
-            if (spriteRenderer != null && followingSprite != null)
-            {
-                spriteRenderer.sprite = followingSprite;
-            }
-
-            if (discoveryText != null)
-            {
-                discoveryText.text = "You Found Struppi!";
-                StartCoroutine(ShowDiscoveryText());
-            }
+            animator.SetBool("isWalking", true);
         }
 
-        void FollowPlayer(float distanceToPlayer)
+        if (discoveryText != null)
         {
-            if (player == null) return;
+            discoveryText.text = "You Found Struppi!";
+            StartCoroutine(ShowDiscoveryText());
+        }
+    }
 
-            float directionX = player.position.x - transform.position.x;
-            float targetYAngle = directionX > 0 ? 0f : 180f;
+    void FollowPlayer(float distanceToPlayer)
+    {
+        if (player == null) return;
 
-            Quaternion targetRotation = Quaternion.Euler(0, targetYAngle, 0);
-            transform.rotation = Quaternion.Lerp(
-                transform.rotation,
-                targetRotation,
-                Time.deltaTime * followSpeed
+        float directionX = player.position.x - transform.position.x;
+        float targetYAngle = directionX > 0 ? 0f : 180f;
+        Quaternion targetRotation = Quaternion.Euler(0, targetYAngle, 0);
+        transform.rotation = Quaternion.Lerp(
+            transform.rotation,
+            targetRotation,
+            Time.deltaTime * followSpeed
+        );
+
+        float distance = Vector2.Distance(transform.position, player.position);
+
+
+        if (distance > followStopDistance)
+        {
+            transform.position = Vector2.MoveTowards(
+                transform.position,
+                player.position,
+                followSpeed * Time.deltaTime
             );
-            float distance = Vector2.Distance(transform.position, player.position);
 
-            if (distance > followStopDistance)
-            {
-                transform.position = Vector2.MoveTowards(
-                    transform.position,
-                    player.position,
-                    followSpeed * Time.deltaTime
-                );
-            }
+            // Set walking animation
+            if (animator != null)
+                animator.SetBool("isWalking", true);
         }
-
-
-        IEnumerator ShowDiscoveryText()
+        else
         {
-            discoveryText.gameObject.SetActive(true);
-
-            yield return new WaitForSeconds(textDisplayDuration);
-
-            discoveryText.gameObject.SetActive(false);
+            // Stop animation when stopped
+            if (animator != null)
+                animator.SetBool("isWalking", false);
         }
+    }
+
+    IEnumerator ShowDiscoveryText()
+    {
+        discoveryText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(textDisplayDuration);
+        discoveryText.gameObject.SetActive(false);
     }
 }
