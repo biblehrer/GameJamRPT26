@@ -264,7 +264,7 @@ MonoBehaviour:
   - {fileID: 2089656015916378151, guid: 7b47047fcddc99a4c96762de2daee86f, type: 3}
   spawnDauer: 6
   gegnerProWelle: 5
-  wellen: 0
+  wellen: 1
   xMaxRange: 5
   yMaxRange: 5
   yMinRange: -5
@@ -7235,7 +7235,7 @@ MonoBehaviour:
   - {fileID: 2089656015916378151, guid: 7b47047fcddc99a4c96762de2daee86f, type: 3}
   spawnDauer: 6
   gegnerProWelle: 5
-  wellen: 0
+  wellen: 2
   xMaxRange: 5
   yMaxRange: 5
   yMinRange: -5
