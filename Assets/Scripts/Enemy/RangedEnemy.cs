@@ -15,6 +15,13 @@ public class RangedEnemy : MonoBehaviour
 
     private float fireTimer = 0f;
 
+    [Header("Fair Shooting")]
+    private Vector2 direction;
+    private bool hasLockedAim = false;
+
+    public float aimDelay = 0.4f; 
+    private float aimTimer = 0f;
+
     private void Start()
     {
         GetTarget();
@@ -29,9 +36,16 @@ public class RangedEnemy : MonoBehaviour
         }
 
         float distanceToTarget = Vector2.Distance(target.position, transform.position);
+
         if (distanceToTarget <= distanceToShoot)
         {
-            Shoot();
+            DelayedShooting();
+        }
+        else
+        {
+            // Reset if player leaves range
+            hasLockedAim = false;
+            aimTimer = 0f;
         }
     }
     private void Shoot()
@@ -65,5 +79,24 @@ public class RangedEnemy : MonoBehaviour
         }
     }
 
+    private void DelayedShooting()
+    {
+        // lock the direction on aim
+        if (!hasLockedAim)
+        {
+            direction = (target.position - firingPoint.position).normalized;
+            hasLockedAim = true;
+            aimTimer = aimDelay;
+        }
+
+        // wait before shooting
+        aimTimer -= Time.deltaTime;
+
+        if (aimTimer <= 0f)
+        {
+            Shoot();
+            hasLockedAim = false; // Reset
+        }
+    }
 }
 
