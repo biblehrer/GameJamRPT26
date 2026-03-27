@@ -18300,6 +18300,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 944958816831572149, guid: 636e3725719520d489d1f42081d85221, type: 3}
+      propertyPath: Spawner
+      value: 
+      objectReference: {fileID: 7334581287753419119}
+    - target: {fileID: 944958816831572149, guid: 636e3725719520d489d1f42081d85221, type: 3}
       propertyPath: spawner
       value: 
       objectReference: {fileID: 7334581287753419119}
