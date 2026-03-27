@@ -7,12 +7,8 @@ public class LootMonster : MonoBehaviour
     [Range(0f, 1f)]
     public List<float> dropchance;
     
-    
-    void OnDestroy()
-    {
-        droploot();
-    }
-    void droploot()
+
+    public void droploot()
     {
         float summe = 0;
         float rnd = Random.value;

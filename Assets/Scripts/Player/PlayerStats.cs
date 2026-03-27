@@ -24,6 +24,10 @@ public class PlayerStats : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public float flashDuration = 0.1f;
 
+    public void Awake()
+    {
+        AttackHitBox.damageMultiplier = 1;
+    }
 
     public void Heal(int amount)
     {
@@ -84,5 +88,17 @@ public class PlayerStats : MonoBehaviour
         }
 
         isUsingSword = SwordType.WoodSword;
+    }
+
+    public void DamageBoost(float multiplier, float duration)
+    {
+        StartCoroutine(DoDamageBoost(multiplier, duration));
+    }
+
+    IEnumerator DoDamageBoost(float multiplier, float duration)
+    {
+        AttackHitBox.damageMultiplier *= multiplier;
+        yield return new WaitForSeconds(duration);
+        AttackHitBox.damageMultiplier /= multiplier;
     }
 }

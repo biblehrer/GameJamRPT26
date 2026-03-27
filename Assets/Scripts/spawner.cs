@@ -12,6 +12,7 @@ public class Spawner : MonoBehaviour
     public float yMaxRange;
     public float yMinRange;
     public float xMinRange;
+    bool gestartetWelle = false;
 
     void Update()
     {
@@ -19,7 +20,7 @@ public class Spawner : MonoBehaviour
         {
             timer += Time.deltaTime;
 
-            if (wellen >= 0)
+            if (wellen > 0)
             {
                 if (timer >= spawnDauer)
                 {
@@ -75,7 +76,18 @@ public class Spawner : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerInRange = true;
+                playerInRange = true;
+                
+                if (gestartetWelle == false)
+            {
+                for (int a = 0; a < gegnerProWelle; a++)
+                {
+                    SpawnMonster();
+                }    
+                timer = 0f;
+                wellen--;   
+                gestartetWelle = true;               
+            }
         }
     }
 }
