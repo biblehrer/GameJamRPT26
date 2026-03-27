@@ -4277,6 +4277,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Win/Loose/Goalpoint
       objectReference: {fileID: 0}
+    - target: {fileID: 1689629739947890266, guid: 261dad92f666ad5429f3403bb8909b04, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4657736498396875922, guid: 261dad92f666ad5429f3403bb8909b04, type: 3}
       propertyPath: playerHealth
       value: 
