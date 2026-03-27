@@ -31,6 +31,8 @@ public class ChestLoot : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private Transform _player;
 
+    public AudioSource Chest;
+
     void Start()
     {
         Info.SetActive(false);
