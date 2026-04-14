@@ -6,7 +6,6 @@ public class PlayerMovement : MonoBehaviour
     public GameObject RotationArea;
     public GameObject playerSprite;
     public MovementAnimation anime;
-    public SpriteRenderer Sprite;
     public float speed = 1;
     public float rotationSpeed = 5f;
     public int faceingState =0;// 0 Up; 1 Down; 2 Right; 3 Left;

@@ -4,6 +4,7 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {   
     public GameObject[] hitbox;
+    public swordslash swordslash;
 
     PlayerStats playerStats;
     PlayerMovement playerMovement;
@@ -12,7 +13,7 @@ public class Attack : MonoBehaviour
     public Transform RotationArea;
     private Vector3 startRotation;
     private Vector3 endRotation;
-    private float rotationTime = 0f;
+    public float rotationTime = 0f;
     private bool rotationDone = false;
 
     Vector2 mousePos;
@@ -95,18 +96,22 @@ public class Attack : MonoBehaviour
             case 0:
                 startRotation = new Vector3(0, 0, 30f);
                 endRotation   = new Vector3(0, 0, -30f);
+                swordslash.isAttacking(true,false);
                 break;
             case 1:
                 startRotation = new Vector3(0, 0, -211f);
                 endRotation   = new Vector3(0, 0, -136f);
+                swordslash.isAttacking(true,true);
                 break;
             case 2:
                 startRotation = new Vector3(0, 0, -59f);
                 endRotation   = new Vector3(0, 0, -131f);
+                swordslash.isAttacking(true,false);
                 break;
             case 3:
                 startRotation = new Vector3(0, 0, 59f);
                 endRotation   = new Vector3(0, 0, 131f);
+                swordslash.isAttacking(true,true);
                 break;
         }
 
@@ -131,6 +136,7 @@ public class Attack : MonoBehaviour
     for (int i = 0; i < hitbox.Length; i++)
     {
         hitbox[i].SetActive(false);
+        swordslash.isAttacking(false,false);
     }
 }
 }

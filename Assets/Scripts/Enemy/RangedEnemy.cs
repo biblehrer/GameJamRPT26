@@ -19,10 +19,8 @@ public class RangedEnemy : MonoBehaviour
 
     [Header("Fair Shooting")]
     private Vector2 direction;
-    private bool hasLockedAim = false;
 
     public float aimDelay = 0.4f; 
-    private float aimTimer = 0f;
 
     private void Start()
     {
