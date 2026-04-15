@@ -20,7 +20,7 @@ public class Goalpoint : MonoBehaviour
 
     private void Update()
     {
-        if (!isGameOver && playerHealth != null && playerHealth.health <= 0)
+        if (playerHealth != null && playerHealth.health <= 0)
         {
             isGameOver = true;
             ShowGameOverScreen();
@@ -44,7 +44,7 @@ public class Goalpoint : MonoBehaviour
     }
     public void ShowGameOverScreen()
     {
-        if (gameOverCanvas != null)
+        if (isGameOver == true)
         {
             gameOverCanvas.SetActive(true);
             Time.timeScale = 0f; // Pause game
