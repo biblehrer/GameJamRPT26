@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 
 public class Goalpoint : MonoBehaviour
 {
@@ -17,21 +18,18 @@ public class Goalpoint : MonoBehaviour
         if (gameOverCanvas != null)
             gameOverCanvas.SetActive(false);
     }
-   
+
     private void Update()
     {
-        if (playerHealth != null && playerHealth.health <= 0)
+        Debug.Log("Health: " + playerHealth.health + " | Reload: " + Reload);
+
+        if (playerHealth != null && playerHealth.health <= 0 && !isGameOver)
         {
             isGameOver = true;
             ShowGameOverScreen();
         }
-        if (!isGameOver)
-        {
-            Time.timeScale = 1f; // Unpause game
-        }
+
     }
-       
-    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -60,5 +58,9 @@ public class Goalpoint : MonoBehaviour
     {
         isGameOver = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f; //unpause
+        Reload++;
     }
+
+    public static int Reload = 0;
 }
