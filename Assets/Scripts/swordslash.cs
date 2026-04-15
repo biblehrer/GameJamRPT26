@@ -10,6 +10,7 @@ public class swordslash : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+        isAttacking(false,false);
     }
 
     // Update is called once per frame
@@ -20,10 +21,6 @@ public class swordslash : MonoBehaviour
 
     public void isAttacking(bool isAttacking, bool flip)
     {
-        if (!didStart)
-        {
-            Start();
-        }
         animator.SetBool("isAttacking", isAttacking);   
         isAttacking = false;     
         sprite.flipX = flip;

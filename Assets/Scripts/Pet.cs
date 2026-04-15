@@ -1,16 +1,18 @@
 ﻿using System.Collections;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class Pet : MonoBehaviour
 {
-
+    public GameObject Info;
     private GameObject player;
     Animator animator;
     public float speed = 2f;         // Bewegungsgeschwindigkeit
     public float stopDistance = 1.25f;  // Abstand, bei dem der Enemy stoppt
     public bool isfollowing = false;
     public float rotationSpeed = 5f; // Drehgeschwindigkeit
+    public bool inRang = false;
    
     void Start()
     {
@@ -26,6 +28,11 @@ public class Pet : MonoBehaviour
             LookAtPlayer();
             MoveTowardsPlayer();
             animator.SetBool("walking", true);
+        }
+
+        if (inRang)
+        {
+            if(Input.GetButton("ActionButten")) isfollowing = true;
         }
     }
 
@@ -52,9 +59,19 @@ public class Pet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.CompareTag("Player"))
+        if (col.gameObject.CompareTag("Player"))
         {
-            isfollowing = true;
+            if (!isfollowing) Info.SetActive(true);
+            inRang = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Player"))
+        {
+            Info.SetActive(false);
+            inRang = false;
         }
     }
 }
