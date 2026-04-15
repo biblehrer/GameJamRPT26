@@ -3,10 +3,15 @@ using UnityEngine;
 public class spawnLitch : MonoBehaviour
 {
     public GameObject Litch;
+    public GameObject door;
     bool playerInRange = false;
     public GameObject Info;
 
 
+    void Start()
+    {
+        door.SetActive(false);
+    }
     void Update()
     {
         if(playerInRange) if(Input.GetButton("ActionButten")) SpawnMonster();
@@ -14,6 +19,7 @@ public class spawnLitch : MonoBehaviour
 
     void SpawnMonster()
     {
+        door.SetActive(true);
         Litch.SetActive(true);
         Destroy(gameObject);
     }
