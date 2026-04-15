@@ -8,12 +8,17 @@ public class FusionPortal : MonoBehaviour
     PlayerStats playerHealth;
     void Start()
     {
+       
         Destroy(gameObject,deathtimer);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Time.timeScale == 0f)
+        {
+            return;
+        }
         if (Input.GetButton("ActionButten") && playerInRange)
         {
             CombineSwords();

@@ -47,6 +47,10 @@ public class ChestLoot : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0f)
+        {
+            return;
+        }
         if (_isOpen || _player == null) return;
 
         float dist = Vector2.Distance(transform.position, _player.position);

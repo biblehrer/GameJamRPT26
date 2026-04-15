@@ -33,6 +33,10 @@ public class Attack : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0f)
+        {
+            return;
+        }
         selectedSword = Mathf.Clamp((int)playerStats.isUsingSword, 0, hitbox.Length - 1);
 
         AttackAnimation();

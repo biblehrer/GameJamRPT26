@@ -8,6 +8,7 @@ public class swordslash : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         isAttacking(false,false);
@@ -16,7 +17,10 @@ public class swordslash : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Time.timeScale == 0f)
+        {
+            return;
+        }
     }
 
     public void isAttacking(bool isAttacking, bool flip)
