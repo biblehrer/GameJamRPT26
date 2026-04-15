@@ -103,8 +103,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spinSpeed: 180
   spin: {x: 0, y: 1, z: 0}
+  value: 1
   detectRange: 8
-  flySpeed: 5
+  flySpeed: 1
   speedRamp: 2
 --- !u!61 &8673541375061920829
 BoxCollider2D:
