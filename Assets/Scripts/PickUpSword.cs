@@ -13,6 +13,7 @@ public class PickUpSword : MonoBehaviour
 
     void Start()
     {
+           
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerInRange = false;
         Info.SetActive(false);
@@ -24,6 +25,10 @@ public class PickUpSword : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0f)
+        {
+            return;
+        }
         if (Input.GetButton("ActionButten") && playerInRange)
         {
             playerHealth.swordCollection[swordType] += 1;
