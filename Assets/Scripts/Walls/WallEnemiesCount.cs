@@ -7,7 +7,6 @@ public class WallEnemiesCount : MonoBehaviour
     public GameObject Spawner;
     private Transform playerTransform; // Nicht mehr public, da wir es automatisch suchen
     bool playerArrived = false;
-    bool enemiesSpawned = false;
 
     void Start()
     {

@@ -10,6 +10,7 @@ public class swordslash : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+        isAttacking(false,false);
     }
 
     // Update is called once per frame

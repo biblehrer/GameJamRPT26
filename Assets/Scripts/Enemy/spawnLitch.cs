@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class spawnLitch : MonoBehaviour
 {
-public GameObject Litch;
+    public GameObject Litch;
     bool playerInRange = false;
     public GameObject Info;
 
 
     void Update()
     {
-        if(playerInRange && Input.GetButton("ActionButten"));
+        //if(playerInRange && Input.GetButton("ActionButten"));
     }
 
     void SpawnMonster()
