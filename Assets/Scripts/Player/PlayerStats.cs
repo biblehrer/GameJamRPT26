@@ -32,6 +32,11 @@ public class PlayerStats : MonoBehaviour
         AttackHitBox.damageMultiplier = 1;
     }
 
+    void Start()
+    {
+        swordCollection[SwordType.WoodSword] += 1;
+    }
+
     public void Heal(int amount)
     {
         health += amount; 

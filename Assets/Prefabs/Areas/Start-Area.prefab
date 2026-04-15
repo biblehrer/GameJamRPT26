@@ -6350,7 +6350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7269231213206543933}
   m_Layer: 0
-  m_Name: Default-Area
+  m_Name: Start-Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
