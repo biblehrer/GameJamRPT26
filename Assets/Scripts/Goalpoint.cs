@@ -17,7 +17,7 @@ public class Goalpoint : MonoBehaviour
         if (gameOverCanvas != null)
             gameOverCanvas.SetActive(false);
     }
-
+   
     private void Update()
     {
         if (playerHealth != null && playerHealth.health <= 0)
@@ -25,6 +25,7 @@ public class Goalpoint : MonoBehaviour
             isGameOver = true;
             ShowGameOverScreen();
         }
+        Debug.Log("Health: " + playerHealth.health);
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -44,10 +45,10 @@ public class Goalpoint : MonoBehaviour
     }
     public void ShowGameOverScreen()
     {
-        if (isGameOver == true)
+        if (isGameOver && gameOverCanvas != null)
         {
             gameOverCanvas.SetActive(true);
-            Time.timeScale = 0f; // Pause game
+            Time.timeScale = 0f;
         }
     }
     public void PlayAgain()
