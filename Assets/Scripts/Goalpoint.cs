@@ -25,8 +25,13 @@ public class Goalpoint : MonoBehaviour
             isGameOver = true;
             ShowGameOverScreen();
         }
-        Debug.Log("Health: " + playerHealth.health);
+        if (!isGameOver)
+        {
+            Time.timeScale = 1f; // Unpause game
+        }
     }
+       
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -53,7 +58,7 @@ public class Goalpoint : MonoBehaviour
     }
     public void PlayAgain()
     {
-        Time.timeScale = 1f; // Unpause game
+        isGameOver = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
