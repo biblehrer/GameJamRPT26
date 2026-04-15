@@ -36,6 +36,10 @@ public class HealthPotion : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0f)
+        {
+            return;
+        }
         if (playerInRange && Input.GetButton("ActionButten"))
         {
             if (drinkSound != null)
