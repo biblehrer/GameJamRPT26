@@ -9,7 +9,7 @@ public class spawnLitch : MonoBehaviour
 
     void Update()
     {
-        //if(playerInRange && Input.GetButton("ActionButten"));
+        if(playerInRange && Input.GetButton("ActionButten"));
     }
 
     void SpawnMonster()
