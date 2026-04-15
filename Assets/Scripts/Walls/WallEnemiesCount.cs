@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class WallEnemiesCount : MonoBehaviour
 {
+    public int currentEnemyCount;
     public float detectionRadius = 3f;
     public GameObject Spawner;
     private Transform playerTransform; // Nicht mehr public, da wir es automatisch suchen
@@ -35,16 +36,16 @@ public class WallEnemiesCount : MonoBehaviour
         }
 
         // Gegner im Spiel zählen
-         int currentEnemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        currentEnemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
         
-        // Welle gestartet?
+        /*/ Welle gestartet?
         if (!enemiesSpawned)
         {
             if (currentEnemyCount > 0)
                 enemiesSpawned = true;
-        }
+        }*/
 
-        if (Spawner == null && currentEnemyCount == 0 && enemiesSpawned)
+        if (Spawner == null && currentEnemyCount == 0 )//&& enemiesSpawned)
         {
             Destroy(gameObject);
         }
