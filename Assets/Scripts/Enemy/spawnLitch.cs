@@ -9,22 +9,31 @@ public class spawnLitch : MonoBehaviour
 
     void Update()
     {
-        if(playerInRange && Input.GetButton("ActionButten"));
+        if(playerInRange) if(Input.GetButton("ActionButten")) SpawnMonster();
     }
 
     void SpawnMonster()
     {
-        Instantiate(Litch);
+        Litch.SetActive(true);
+        Destroy(gameObject);
     }
 
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D col)
     {
-        if (other.CompareTag("Player"))
+        if (col.gameObject.CompareTag("Player"))
         {
             playerInRange = true;
             Info.SetActive(true);
         }
-        else Info.SetActive(false);
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Player"))
+        {
+            playerInRange = false;
+            Info.SetActive(false);
+        }
     }
 }
