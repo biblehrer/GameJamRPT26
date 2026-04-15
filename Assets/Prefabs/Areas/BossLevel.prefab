@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Litch: {fileID: 7334581287753419119}
-  door: {fileID: 0}
+  door: {fileID: 7058214147785720187}
   Info: {fileID: 2506556737352130798}
 --- !u!61 &62515416895489685
 BoxCollider2D:
@@ -641,6 +641,11 @@ PrefabInstance:
 --- !u!4 &5767433646616135863 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 372220356319248867, guid: 636e3725719520d489d1f42081d85221, type: 3}
+  m_PrefabInstance: {fileID: 6134023814996347220}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7058214147785720187 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3806595524539402287, guid: 636e3725719520d489d1f42081d85221, type: 3}
   m_PrefabInstance: {fileID: 6134023814996347220}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6601986008538252586
@@ -17697,15 +17702,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7269231213206543933, guid: cd05cdcdc84ad354b9268bf2841eff00, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 49
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7269231213206543933, guid: cd05cdcdc84ad354b9268bf2841eff00, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 7269231213206543933, guid: cd05cdcdc84ad354b9268bf2841eff00, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.010553159
       objectReference: {fileID: 0}
     - target: {fileID: 7269231213206543933, guid: cd05cdcdc84ad354b9268bf2841eff00, type: 3}
       propertyPath: m_LocalRotation.w
