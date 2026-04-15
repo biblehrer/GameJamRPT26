@@ -20,6 +20,10 @@ public class swordslash : MonoBehaviour
 
     public void isAttacking(bool isAttacking, bool flip)
     {
+        if (!didStart)
+        {
+            Start();
+        }
         animator.SetBool("isAttacking", isAttacking);   
         isAttacking = false;     
         sprite.flipX = flip;
