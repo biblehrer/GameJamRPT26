@@ -4996,6 +4996,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5510536209235017673, guid: f7b6fca3061ca1f4a93548fb5d981e35, type: 3}
+      propertyPath: monsters.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5510536209235017673, guid: f7b6fca3061ca1f4a93548fb5d981e35, type: 3}
+      propertyPath: 'monsters.Array.data[2]'
+      value: 
+      objectReference: {fileID: 509503397570167816, guid: d44ad1c5c8f02754597c58bf9daa8bc7, type: 3}
     - target: {fileID: 8706231329938589959, guid: f7b6fca3061ca1f4a93548fb5d981e35, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1
