@@ -9,6 +9,7 @@ public class PlayerStats : MonoBehaviour
     public int maxHealth = 100;
     public float invincibleTime;
     public int gold = 0;
+    public int hat;
     
     public Dictionary<SwordType, int> swordCollection = new Dictionary<SwordType, int>()
     {
