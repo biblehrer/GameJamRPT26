@@ -5135,6 +5135,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shop
       objectReference: {fileID: 0}
+    - target: {fileID: 4617506282883023105, guid: eb68a008c75f86f40b2c95c6fedc8c48, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1972935058, guid: eb0af62c76a230d4dbc8ed406b73df7a, type: 3}
+    - target: {fileID: 4617506282883023105, guid: eb68a008c75f86f40b2c95c6fedc8c48, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617506282883023105, guid: eb68a008c75f86f40b2c95c6fedc8c48, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617506282883023105, guid: eb68a008c75f86f40b2c95c6fedc8c48, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8968900147059582445, guid: eb68a008c75f86f40b2c95c6fedc8c48, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.17
