@@ -14,6 +14,12 @@ public class LevelSystem : MonoBehaviour
     public float Exponent = 2f;
     public int MaxLevel = 100;
 
+    void Start()
+    {
+        stats = GetComponent<PlayerStats>();
+        move = GetComponent<PlayerMovement>();
+    }
+
     public float XPToNextLevel(int level)
     {
         return Mathf.Round(BaseXP * Mathf.Pow(level, Exponent));
@@ -38,6 +44,7 @@ public class LevelSystem : MonoBehaviour
 
     private void OnLevelUp(int newLevel)
     {
+        Stats();
         Debug.Log($"Level up! Now level {newLevel}");
     }
 
