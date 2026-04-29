@@ -7,38 +7,24 @@ using TMPro;
 
 public class Shop : MonoBehaviour
 {
-    public GameObject Info;
-    public List<GameObject> itemsSprites;
     public GameObject shopUI;
-    public GameObject ShopItems;
+    public GameObject Info;
+    public GameObject coin;
 
     private bool playerInRange = false;
-    private int[] currentItems;
-    int[] type;
-    private int maxItems = 3;
     PlayerStats player;
-
-    void Start()
-    {   
-        currentItems = new int[maxItems];
-        type = new int[maxItems];
-        for (int i =0; i<maxItems; i++)
-        {
-            currentItems[i] = Random.Range(0, itemsSprites.Count);
-            type[i] = Random.Range(0,4);
-        }
-    }
-
 
     void Update()
     {
         if (playerInRange && Input.GetButton("ActionButten"))
         {   
-            SetItems();
             shopUI.SetActive(true);
-            Destroy(gameObject);
         }
-        SetItems();
+        if (player != null)
+        {
+            TextMeshProUGUI coinT = coin.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
+            coinT.text = "" + player.gold;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -47,7 +33,8 @@ public class Shop : MonoBehaviour
         {
             playerInRange = true;
             Info.SetActive(true);
-            player = other.GetComponent<PlayerStats>();;
+            player = other.GetComponent<PlayerStats>();
+
         }
     }
 
@@ -58,24 +45,38 @@ public class Shop : MonoBehaviour
             playerInRange = false;
             Info.SetActive(false);
             shopUI.SetActive(false);
-            player = null;
         }
     }
 
-    public void Buy(int i)
+    public void BuyHealth()
     {   
-        player.swordCollection[(SwordType)type[i]] += 1;
-    }
-
-    void SetItems()
-    {
-        for (int i=0; i<ShopItems.transform.childCount; i++)
+        if (player.gold >= 5)
         {
-            UnityEngine.UI.Image sr = ShopItems.transform.GetChild(i).GetComponent<UnityEngine.UI.Image>();
-            PickUpSword a = itemsSprites[currentItems[i]].GetComponent<PickUpSword>();
-            sr.sprite = a.sprites[type[i]];
+            player.health += 25;
+            player.gold -= 5;
         }
     }
+
+    public void BuySword()
+    {
+        
+        if (player.gold >= 10)
+        {
+            player.swordCollection[SwordType.BoneSword] += 1;
+            player.gold -= 10;
+        }
+    }
+
+    public void BuySword2()
+    {
+        
+        if (player.gold >= 20)
+        {
+            player.swordCollection[SwordType.Netherrite] += 1;
+            player.gold -= 20;
+        }
+    }
+
 
     public void Close()
     {

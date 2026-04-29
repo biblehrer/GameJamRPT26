@@ -48,7 +48,7 @@ public class coin : MonoBehaviour
         if (col.gameObject.CompareTag("Player"))
         {
             playerStats = col.gameObject.GetComponent<PlayerStats>();
-            playerStats.gold =+ value;
+            playerStats.gold += value;
             Destroy(gameObject);
         }
     }

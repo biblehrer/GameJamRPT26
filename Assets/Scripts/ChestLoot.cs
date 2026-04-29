@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 [System.Serializable]
 public class LootEntry
@@ -31,7 +32,7 @@ public class ChestLoot : MonoBehaviour
     private Transform _player;
 
     [Header("Audio")]
-    public AudioSource chestSound; // Assign your AudioSource component here
+    [SerializeField] private AudioClip chestSound;
 
     void Start()
     {
@@ -61,8 +62,12 @@ public class ChestLoot : MonoBehaviour
 
         // Changed to GetButtonDown to prevent the chest from "machine-gunning" sound/loot
         if (_playerNearby && Input.GetButtonDown("Use"))
-        {
-            OpenChest();
+       {
+            if (chestSound != null)
+            {
+                AudioSource.PlayClipAtPoint(chestSound, transform.position);
+            }
+            OpenChest();    
         }
     }
 
@@ -70,12 +75,6 @@ public class ChestLoot : MonoBehaviour
     {
         Info.SetActive(false);
         _isOpen = true;
-
-        // Play the sound
-        if (chestSound != null)
-        {
-            chestSound.Play();
-        }
 
         // Swap sprite
         if (openSprite != null)
