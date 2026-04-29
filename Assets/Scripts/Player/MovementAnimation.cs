@@ -3,6 +3,7 @@ using UnityEngine;
 public class MovementAnimation : MonoBehaviour
 {
     Animator animator;
+    public Transform HatGamObject;
 
     void Start()
     {
@@ -41,5 +42,15 @@ public class MovementAnimation : MonoBehaviour
         animator.SetBool("walkNorth", nothing);
         animator.SetBool("walkSouth", nothing);
         animator.SetBool("walkSide", nothing);
+    }
+
+    public void hatMoveUp()
+    {
+        HatGamObject.position = transform.position + new Vector3(0,0.3699999f,0);
+    }
+
+    public void hatMoveDown()
+    {
+        HatGamObject.position = transform.position + new Vector3(0,0.319f,0);
     }
 }
