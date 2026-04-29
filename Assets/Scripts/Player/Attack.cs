@@ -1,4 +1,5 @@
 using System.Security.Cryptography.X509Certificates;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Attack : MonoBehaviour
@@ -14,13 +15,17 @@ public class Attack : MonoBehaviour
     private Vector3 startRotation;
     private Vector3 endRotation;
     public float rotationTime = 0f;
+    public GameObject fireball;
+    public float feuercooldown = 10f;
+    public float feuertimer = 0f;
+    public Vector3 lastmove;
     private bool rotationDone = false;
 
     Vector2 mousePos;
     Vector2 rightStick;
 
     private bool attacking = false;
-    private float cooldown = 0.50f;
+    private float cooldown = 0.5f;
     private float timer = 0f;
 
     private int selectedSword = 0;
@@ -33,6 +38,7 @@ public class Attack : MonoBehaviour
 
     void Update()
     {
+        feuertimer += Time.deltaTime;
         if (Time.timeScale == 0f)
         {
             return;
@@ -61,14 +67,29 @@ public class Attack : MonoBehaviour
                 DeactivateAllSwords();
             }
         }
-
+        if(Input.GetMouseButtonDown(1))
+            {
+                shoot();
+            }
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         rightStick = new Vector2(Input.GetAxisRaw("RightStickX"), Input.GetAxisRaw("RightStickY"));
     }
-
+    
     void FixedUpdate()
     {
 
+    }
+    public void shoot()
+    {
+        
+
+            if (feuertimer >= feuercooldown)
+            {
+                feuertimer = 0f;
+                GameObject obj = Instantiate(fireball, transform.position, Quaternion.identity );
+            }
+        
+        
     }
 
     int GetFacingFromMouse()
