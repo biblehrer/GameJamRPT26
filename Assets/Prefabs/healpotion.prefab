@@ -235,7 +235,7 @@ MonoBehaviour:
   speedSprite: {fileID: -3575281986258195482, guid: f883b0445a35c77488b0c9ccc4a691f5, type: 3}
   boostMultiplier: 2
   boostDuration: 5
-  drinkSound: {fileID: 8300000, guid: 1625854e2ce2f81419e2ce53ffda9ac4, type: 3}
+  drinkSound: {fileID: 8300000, guid: 770853f070ff11e489196594f6c44aba, type: 3}
 --- !u!61 &407336134887235188
 BoxCollider2D:
   m_ObjectHideFlags: 0

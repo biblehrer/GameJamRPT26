@@ -10,9 +10,25 @@ public class feuerball : MonoBehaviour
      [Header("Damage")]
     [SerializeField]
     private int damage = 10;
+    public float offset = 0;
+
+    
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = -Camera.main.transform.position.z; 
+        Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(mousePos);
+
+        direction = (worldMousePos - transform.position).normalized; 
+
+        
+        Vector2 lookDir = (Vector2)worldMousePos - (Vector2)transform.position;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+        
+        transform.rotation = Quaternion.Euler(0, 0, angle + offset);
         Destroy(fireball, 3);
     }
 
@@ -20,11 +36,12 @@ public class feuerball : MonoBehaviour
     void Update()
     {
         
-            transform.position += transform.right * 1 * schnelligkeit * Time.deltaTime;
+            transform.position += direction * 1 * schnelligkeit * Time.deltaTime;
 
         
         
     }
+
     public void OverwriteDirection(Vector3 dir)
     {
         transform.right = dir;

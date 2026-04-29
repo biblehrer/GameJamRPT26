@@ -696,6 +696,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2336435849109815083, guid: d38f27232738ce4408ac202d6274b508, type: 3}
+      propertyPath: fireball
+      value: 
+      objectReference: {fileID: 7931571998036174631, guid: 1e65f5d5906c225418bc160e08643dda, type: 3}
+    - target: {fileID: 2336435849109815083, guid: d38f27232738ce4408ac202d6274b508, type: 3}
+      propertyPath: feuercooldown
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4636735191218907618, guid: d38f27232738ce4408ac202d6274b508, type: 3}
       propertyPath: m_Name
       value: Player
