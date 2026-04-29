@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 5346145887819112677}
   - component: {fileID: 2334606949026481293}
   m_Layer: 6
-  m_Name: 'BowSkeleton '
+  m_Name: BowSkeleton
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -269,6 +269,7 @@ MonoBehaviour:
   - 0.4
   - 0.15
   - 1
+  XP: 15
 --- !u!1 &8134945522160888857
 GameObject:
   m_ObjectHideFlags: 0

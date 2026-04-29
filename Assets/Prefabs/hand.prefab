@@ -219,6 +219,7 @@ MonoBehaviour:
   dropchance:
   - 0.2
   - 0.1
+  XP: 5
 --- !u!50 &5538259595852962241
 Rigidbody2D:
   serializedVersion: 5
